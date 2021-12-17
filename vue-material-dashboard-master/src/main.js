@@ -16,6 +16,10 @@ import MaterialDashboard from "./material-dashboard";
 
 import Chartist from "chartist";
 
+
+//Auth:
+import store from './store';
+
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
