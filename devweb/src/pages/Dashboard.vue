@@ -82,7 +82,7 @@
           </template>
 
           <template slot="content">
-            <p class="category">this.danso</p>
+            <p class="category">Dân số </p>
             <h3 class="title">9900000</h3>
           </template>
 

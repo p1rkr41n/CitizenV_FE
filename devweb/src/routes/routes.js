@@ -17,7 +17,7 @@ const routes = [
     children: [
       {
         path: "dashboard",
-        name: "Tim kiem",
+        name: "Thống kê",
         component: Dashboard,
       },
       {
@@ -37,7 +37,7 @@ const routes = [
       },
       {
         path: "icons",
-        name: "Thong ke",
+        name: "Tìm kiếm",
         component: Icons,
       },
      
