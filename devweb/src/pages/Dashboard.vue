@@ -89,7 +89,7 @@
           <template slot="footer">
             <div class="stats">
               <md-icon>date_range</md-icon>
-              Last 24 Hours
+              *Dữ liệu chỉ chính xác khi kết thúc khai báo.
             </div>
           </template>
         </stats-card>
