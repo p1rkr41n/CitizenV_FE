@@ -5,14 +5,19 @@ import StatsCard from "./Cards/StatsCard.vue";
 
 // Tables
 import NavTabsTable from "./Tables/NavTabsTable.vue";
-import OrderedTable from "./Tables/OrderedTable.vue";
+import ReligionTable from "./Tables/ReligionTable.vue";
 import SimpleTable from "./Tables/SimpleTable.vue";
+import EducationTable from "./Tables/EducationTable.vue";
+// Dropdowns
+import DropDown from "./Dropdown.vue";
 
 export {
   ChartCard,
   NavTabsCard,
   StatsCard,
   NavTabsTable,
-  OrderedTable,
+  ReligionTable,
   SimpleTable,
+  DropDown,
+  EducationTable,
 };

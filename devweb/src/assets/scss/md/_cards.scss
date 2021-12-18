@@ -242,6 +242,21 @@
         @include shadow-big-color($brand-danger);
     }
 
+    [data-background-color="white"],
+    .md-tabs.md-danger .md-tabs-navigation{
+        background: #fff;
+        .title{
+            color: #000;
+        }
+        @include shadow-big-color($brand-danger);
+    }
+
+    [data-background-color="none"],
+    .md-tabs.md-danger .md-tabs-navigation{
+        background: none;
+        // @include shadow-big-color($brand-danger);
+    }
+
     [data-background-color]{
         color: $white-color;
 

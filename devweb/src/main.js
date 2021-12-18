@@ -1,6 +1,8 @@
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import vSelect from "vue-select";
+
 import App from "./App";
 
 // router setup
@@ -33,6 +35,7 @@ Vue.use(MaterialDashboard);
 Vue.use(GlobalComponents);
 Vue.use(GlobalDirectives);
 Vue.use(Notifications);
+Vue.component("v-select", vSelect);
 
 /* eslint-disable no-new */
 new Vue({

@@ -3,5 +3,5 @@ import UserCard from "../pages/UserProfile/UserCard.vue";
 
 // Forms
 import EditProfileForm from "../pages/UserProfile/EditProfileForm.vue";
-
-export { UserCard, EditProfileForm };
+// icon link https://mui.com/components/material-icons/
+export { UserCard, EditProfileForm};

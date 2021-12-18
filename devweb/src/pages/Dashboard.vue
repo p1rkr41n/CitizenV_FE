@@ -2,87 +2,93 @@
   <div class="content">
     <div class="md-layout">
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
+        style="z-index: 2"
       >
-        <chart-card
-          :chart-data="dailySalesChart.data"
-          :chart-options="dailySalesChart.options"
-          :chart-type="'Line'"
-          data-background-color="blue"
-        >
-          <template slot="content">
-            <h4 class="title">Ti le dan so</h4>
-            <p class="category">
-              <span class="text-success"
-                ><i class="fas fa-long-arrow-alt-up"></i> 35%
-              </span>
-              ti le sinh.
-            </p>
-          </template>
+        <md-card class="md-card-plain">
+          <md-card-header data-background-color="purple">
+            <h4 class="title">Tìm kiếm khu vực:</h4>
+            <!--  -->
+            <div
+              class="
+                md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100
+              "
+            >
+              <v-select
+                :options="city"
+                label="title"
+                placeholder="Tỉnh/thành phố"
+                class="
+                  md-dropdown-vselector
+                  md-layout-item
+                  md-medium-size-100
+                  md-xsmall-size-100
+                  md-size-20
+                "
+              ></v-select>
 
-          <template slot="footer">
-            <div class="stats">
-              <md-icon>access_time</md-icon>
-              updated 30 minutes ago
-            </div>
-          </template>
-        </chart-card>
-      </div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
-      >
-        <chart-card
-          :chart-data="emailsSubscriptionChart.data"
-          :chart-options="emailsSubscriptionChart.options"
-          :chart-responsive-options="emailsSubscriptionChart.responsiveOptions"
-          :chart-type="'Bar'"
-          data-background-color="red"
-        >
-          <template slot="content">
-            <h4 class="title">xoa mu chu</h4>
-            <p class="category">lam giau khong kho</p>
-          </template>
+              <v-select
+                :options="city"
+                label="title"
+                placeholder="Huyện/quận"
+                class="
+                  md-dropdown-vselector
+                  md-layout-item
+                  md-medium-size-100
+                  md-xsmall-size-100
+                  md-size-20
+                "
+              ></v-select>
 
-          <template slot="footer">
-            <div class="stats">
-              <md-icon>access_time</md-icon>
-              updated 10 days ago
-            </div>
-          </template>
-        </chart-card>
-      </div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
-      >
-        <chart-card
-          :chart-data="dataCompletedTasksChart.data"
-          :chart-options="dataCompletedTasksChart.options"
-          :chart-type="'Line'"
-          data-background-color="green"
-        >
-          <template slot="content">
-            <h4 class="title">Completed Tasks</h4>
-            <p class="category">Last Campaign Performance</p>
-          </template>
+              <v-select
+                :options="city"
+                label="title"
+                placeholder="Xã/phường/thị trấn"
+                class="
+                  md-dropdown-vselector
+                  md-layout-item
+                  md-medium-size-100
+                  md-xsmall-size-100
+                  md-size-20
+                "
+              ></v-select>
 
-          <template slot="footer">
-            <div class="stats">
-              <md-icon>access_time</md-icon>
-              campaign sent 26 minutes ago
+              <v-select
+                :options="city"
+                label="title"
+                placeholder="Thôn/xóm/địa phương"
+                class="
+                  md-dropdown-vselector
+                  md-layout-item
+                  md-medium-size-100
+                  md-xsmall-size-100
+                  md-size-20
+                "
+              ></v-select>
+              <!--  -->
+              <div
+                class="md-layout-item md-size-10 text-left md-vertical-center"
+              >
+                <md-button class="md-raised md-success md-round"
+                  >Tìm kiếm</md-button
+                >
+              </div>
             </div>
-          </template>
-        </chart-card>
+          </md-card-header>
+        </md-card>
       </div>
+      <!-- </div> -->
+      <!-- ================ -->
       <div
         class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
       >
         <stats-card data-background-color="green">
           <template slot="header">
-            <md-icon>store</md-icon>
+            <md-icon>people_alt</md-icon>
           </template>
 
           <template slot="content">
-            <p class="category">Dân số </p>
+            <p class="category">Dân số</p>
             <h3 class="title">9900000</h3>
           </template>
 
@@ -97,23 +103,20 @@
       <div
         class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
       >
-        <stats-card data-background-color="orange">
+        <stats-card data-background-color="blue">
           <template slot="header">
-            <md-icon>content_copy</md-icon>
+            <md-icon>wc</md-icon>
           </template>
 
           <template slot="content">
-            <p class="category">dwqdwq</p>
-            <h3 class="title">
-              dwqdwq
-              <small>wqdwq</small>
-            </h3>
+            <p class="category">Tỉ lệ nam/nữ</p>
+            <h3 class="title">10%</h3>
           </template>
 
           <template slot="footer">
             <div class="stats">
               <md-icon class="text-danger">warning</md-icon>
-              <a href="#pablo">eqweqwq</a>
+              <a href="#pablo">Chỉ nam nữ thời điểm 01/01/2022</a>
             </div>
           </template>
         </stats-card>
@@ -123,18 +126,18 @@
       >
         <stats-card data-background-color="red">
           <template slot="header">
-            <md-icon>info_outline</md-icon>
+            <md-icon>work_off</md-icon>
           </template>
 
           <template slot="content">
-            <p class="category">qwdqdwq</p>
-            <h3 class="title">dwqdw</h3>
+            <p class="category">Tỉ lệ thất nghiệp</p>
+            <h3 class="title">10%</h3>
           </template>
 
           <template slot="footer">
             <div class="stats">
               <md-icon>local_offer</md-icon>
-            wqdwqewqeq
+              10% dân cư không có việc làm
             </div>
           </template>
         </stats-card>
@@ -142,14 +145,14 @@
       <div
         class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
       >
-        <stats-card data-background-color="blue">
+        <stats-card data-background-color="orange">
           <template slot="header">
-            <i class="fab fa-facebook"></i>
+            <md-icon>local_library</md-icon>
           </template>
 
           <template slot="content">
-            <p class="category">ewqewqe</p>
-            <h3 class="title">weqweq</h3>
+            <p class="category">Tỉ lệ mù chữ</p>
+            <h3 class="title">20%</h3>
           </template>
 
           <template slot="footer">
@@ -161,39 +164,30 @@
         </stats-card>
       </div>
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-=50"
       >
         <md-card>
-          <md-card-header data-background-color="orange">
-            <h4 class="title">Employees Stats</h4>
-            <p class="category">New employees on 15th September, 2016</p>
+          <md-card-header data-background-color="blue">
+            <h4 class="title">Trình độ phát triển giáo dục</h4>
+            <p class="category">Bằng cấp và trình độ của cư dân trong khu vực</p>
           </md-card-header>
           <md-card-content>
-            <ordered-table table-header-color="orange"></ordered-table>
+            <EducationTable table-header-color="blue"></EducationTable>
           </md-card-content>
         </md-card>
       </div>
-      <div
+            <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
       >
-        <nav-tabs-card>
-          <template slot="content">
-            <span class="md-nav-tabs-title">Tasks:</span>
-            <md-tabs class="md-success" md-alignment="left">
-              <md-tab id="tab-home" md-label="Bugs" md-icon="bug_report">
-                <nav-tabs-table></nav-tabs-table>
-              </md-tab>
-
-              <md-tab id="tab-pages" md-label="Website" md-icon="code">
-                <nav-tabs-table></nav-tabs-table>
-              </md-tab>
-
-              <md-tab id="tab-posts" md-label="server" md-icon="cloud">
-                <nav-tabs-table></nav-tabs-table>
-              </md-tab>
-            </md-tabs>
-          </template>
-        </nav-tabs-card>
+        <md-card>
+          <md-card-header data-background-color="green">
+            <h4 class="title">Tỉ lệ phần trăm tôn giáo</h4>
+            <p class="category">Phần trăm các tôn giáo trong khu vực</p>
+          </md-card-header>
+          <md-card-content>
+            <ReligionTable table-header-color="green"></ReligionTable>
+          </md-card-content>
+        </md-card>
       </div>
     </div>
   </div>
@@ -202,108 +196,38 @@
 <script>
 import {
   StatsCard,
-  ChartCard,
-  NavTabsCard,
-  NavTabsTable,
-  OrderedTable,
+  // ChartCard,
+  // NavTabsCard,
+  // NavTabsTable,
+  ReligionTable,
+  EducationTable,
+  // DropDown,
 } from "@/components";
+// import EducationTable from '../components/Tables/EducationTable.vue';
 
 export default {
   components: {
     StatsCard,
-    ChartCard,
-    NavTabsCard,
-    NavTabsTable,
-    OrderedTable,
+    // ChartCard,
+    // NavTabsCard,
+    // NavTabsTable,
+    ReligionTable,
+    // EducationTable
+    EducationTable,
+    // NavTabsTable,
+    // DropDown,
   },
   data() {
     return {
-      dailySalesChart: {
-        data: {
-          labels: ["M", "T", "W", "T", "F", "S", "S"],
-          series: [[12, 17, 7, 17, 23, 18, 38]],
-        },
-        options: {
-          lineSmooth: this.$Chartist.Interpolation.cardinal({
-            tension: 0,
-          }),
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-          },
-        },
-      },
-      dataCompletedTasksChart: {
-        data: {
-          labels: ["12am", "3pm", "6pm", "9pm", "12pm", "3am", "6am", "9am"],
-          series: [[230, 750, 450, 300, 280, 240, 200, 190]],
-        },
-
-        options: {
-          lineSmooth: this.$Chartist.Interpolation.cardinal({
-            tension: 0,
-          }),
-          low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-          },
-        },
-      },
-      emailsSubscriptionChart: {
-        data: {
-          labels: [
-            "Ja",
-            "Fe",
-            "Ma",
-            "Ap",
-            "Mai",
-            "Ju",
-            "Jul",
-            "Au",
-            "Se",
-            "Oc",
-            "No",
-            "De",
-          ],
-          series: [
-            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-          ],
-        },
-        options: {
-          axisX: {
-            showGrid: false,
-          },
-          low: 0,
-          high: 1000,
-          chartPadding: {
-            top: 0,
-            right: 5,
-            bottom: 0,
-            left: 0,
-          },
-        },
-        responsiveOptions: [
-          [
-            "screen and (max-width: 640px)",
-            {
-              seriesBarDistance: 5,
-              axisX: {
-                labelInterpolationFnc: function (value) {
-                  return value[0];
-                },
-              },
-            },
-          ],
-        ],
-      },
+      city: [
+        { title: "Old Man's War" },
+        { title: "The Lock Artist" },
+        { title: "HTML5" },
+        { title: "Right Ho Jeeves" },
+        { title: "The Code of the Wooster" },
+        { title: "Thank You Jeeves" },
+        { title: "Thank You Jees" },
+      ],
     };
   },
 };

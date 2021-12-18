@@ -27,7 +27,7 @@
             <p class="category">Here is a subtitle for this table</p>
           </md-card-header>
           <md-card-content>
-            <ordered-table></ordered-table>
+            <ReligionTable></ReligionTable>
           </md-card-content>
         </md-card>
       </div>
@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import { SimpleTable, OrderedTable } from "@/components";
+import { SimpleTable, ReligionTable } from "@/components";
 
 export default {
   components: {
-    OrderedTable,
+    ReligionTable,
     SimpleTable,
   },
 };

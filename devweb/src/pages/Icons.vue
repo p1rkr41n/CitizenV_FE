@@ -6,10 +6,8 @@
           <md-card-header data-background-color="green">
             <h4 class="title">Tim kiếm</h4>
             <p class="category">
-              TIM KIEM BANG 
-              <a target="_blank" href="https:google.com"
-                >Google</a
-              >
+              TIM KIEM BANG
+              <a target="_blank" href="https:google.com">Google</a>
             </p>
           </md-card-header>
 
@@ -21,10 +19,7 @@
             </div>
             <div class="hidden-md">
               <h5>
-               
-                <a href="" target="_blank"
-                  >TIM KIEM</a
-                >
+                <a href="" target="_blank">TIM KIEM</a>
               </h5>
             </div>
           </md-card-content>
