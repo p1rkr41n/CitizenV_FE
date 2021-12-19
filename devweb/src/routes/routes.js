@@ -35,7 +35,7 @@ const routes = [
       },
       {
         path: "typography",
-        name: "Intro",
+        name: "Giới thiệu",
         component: Typography,
       },
       {
