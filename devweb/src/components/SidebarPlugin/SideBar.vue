@@ -6,7 +6,7 @@
     :style="sidebarStyle"
   >
     <div class="logo">
-      <a href="#" class="simple-text logo-mini">
+      <a href="/app/dashboard" class="simple-text logo-mini">
         <div class="logo-img">
           <img :src="imgLogo" alt="" />
         </div>

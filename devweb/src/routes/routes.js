@@ -5,21 +5,31 @@ import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
 import Typography from "@/pages/Typography.vue";
 import Icons from "@/pages/Icons.vue";
-import Maps from "@/pages/Maps.vue";
+import Login from "@/pages/Login.vue";
+
+
 import Notifications from "@/pages/Notifications.vue";
-import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
+
+// import Login from "@views/Login.vue"
+
 
 const routes = [
   {
-    path: "/",
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: "/app",
+    name: "DashboardLayout",
     component: DashboardLayout,
-    redirect: "/dashboard",
     children: [
       {
         path: "dashboard",
         name: "Thống kê",
         component: Dashboard,
       },
+  
       {
         path: "user",
         name: "Khai bao",

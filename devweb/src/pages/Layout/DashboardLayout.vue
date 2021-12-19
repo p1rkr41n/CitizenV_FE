@@ -8,24 +8,24 @@
     >
       <mobile-menu slot="content"></mobile-menu>
 
-       <sidebar-link to="/typography">
+       <sidebar-link to="/app/typography">
         <md-icon>library_books</md-icon>
         <p>Intro</p>
       </sidebar-link>
-      <sidebar-link to="/dashboard">
+      <sidebar-link to="/app/dashboard">
         <md-icon>dashboard</md-icon>
         <p>THỐNG KÊ</p>
       </sidebar-link>
-      <sidebar-link to="/user">
+      <sidebar-link to="/app/user">
         <md-icon>person</md-icon>
         <p>KHAI BÁO</p>
       </sidebar-link>
-      <sidebar-link to="/table">
+      <sidebar-link to="/app/table">
         <md-icon>content_paste</md-icon>
         <p>CẤP TÀI KHOẢN</p>
       </sidebar-link>
      
-      <sidebar-link to="/icons">
+      <sidebar-link to="/app/icons">
         <md-icon>find_in_page</md-icon>
         <p>TÌM KIÊM</p>
       </sidebar-link>

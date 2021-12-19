@@ -20,8 +20,8 @@ import Chartist from "chartist";
 import VueApexCharts from "vue-apexcharts";
 
 //Auth:
-import store from './store';
-
+// import store from './store';
+import store from "./store";
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
