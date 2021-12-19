@@ -167,14 +167,14 @@
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-=50"
       >
         <md-card>
-          <md-card-header data-background-color="blue">
+          <md-card-header data-background-color="purple">
             <h4 class="title">Trình độ phát triển giáo dục</h4>
             <p class="category">
               Bằng cấp và trình độ của cư dân trong khu vực
             </p>
           </md-card-header>
           <md-card-content>
-            <EducationTable table-header-color="blue"></EducationTable>
+            <EducationTable table-header-color="purple"></EducationTable>
           </md-card-content>
         </md-card>
       </div>
@@ -182,12 +182,12 @@
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
       >
         <md-card>
-          <md-card-header data-background-color="green">
+          <md-card-header data-background-color="purple">
             <h4 class="title">Tỉ lệ phần trăm tôn giáo</h4>
             <p class="category">Phần trăm các tôn giáo trong khu vực</p>
           </md-card-header>
           <md-card-content>
-            <ReligionTable table-header-color="green"></ReligionTable>
+            <ReligionTable table-header-color="purple"></ReligionTable>
           </md-card-content>
         </md-card>
       </div>
@@ -195,7 +195,7 @@
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
       >
         <md-card>
-          <md-card-header data-background-color="green">
+          <md-card-header data-background-color="purple">
             <h4 class="title">Tỉ lệ nam/nữ theo độ tuổi</h4>
             <!-- <p class="category">Phần trăm các tôn giáo trong khu vực</p> -->
           </md-card-header>
