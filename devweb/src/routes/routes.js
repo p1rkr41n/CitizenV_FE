@@ -10,10 +10,13 @@ import Notifications from "@/pages/Notifications.vue";
 import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 
 const routes = [
+//   {
+//     path:"login",
+//    name: Login,
+// },
   {
-    path: "/",
+    path: "/app",
     component: DashboardLayout,
-    redirect: "/dashboard",
     children: [
       {
         path: "dashboard",
