@@ -153,7 +153,11 @@
   background-clip: padding-box;
   border: 1px solid #fff;
   border: 10px solid rgba(255, 255, 255, 0);
-  border-radius: 100px;
+  border-radius: 30px;
+}
+.md-dropdown-vselector .vs__dropdown-menu {
+
+  border-radius: 10px;
 }
 .vs__dropdown-toggle {
   border: 3px solid rgba(255, 255, 255, 0);
