@@ -1,7 +1,12 @@
 <template>
   <div>
     <md-table v-model="users" md-card @md-selected="onSelect">
-            <md-table-row slot="md-table-row" slot-scope="{ item }" :class="getClass(item)" md-selectable="single">
+      <md-table-row
+        slot="md-table-row"
+        slot-scope="{ item }"
+        :class="getClass(item)"
+        md-selectable="single"
+      >
         <md-table-cell
           class="md-layout-item md-medium-size-50 md-xsmall-size-50 md-size-25"
           >{{ item.name }}</md-table-cell
@@ -22,7 +27,6 @@
           </md-button> -->
           {{ item.name }}
         </md-table-cell>
-        
       </md-table-row>
     </md-table>
     <p>Selected:</p>
@@ -51,9 +55,9 @@ export default {
   },
   methods: {
     getClass: ({ name }) => ({
-        'md-primary': name === 2,
-        'md-accent': name === 3
-      }),
+      "md-primary": name === 2,
+      "md-accent": name === 3,
+    }),
     onSelect: function (items) {
       this.selected = items;
     },
