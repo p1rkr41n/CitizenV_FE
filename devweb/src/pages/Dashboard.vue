@@ -169,14 +169,16 @@
         <md-card>
           <md-card-header data-background-color="blue">
             <h4 class="title">Trình độ phát triển giáo dục</h4>
-            <p class="category">Bằng cấp và trình độ của cư dân trong khu vực</p>
+            <p class="category">
+              Bằng cấp và trình độ của cư dân trong khu vực
+            </p>
           </md-card-header>
           <md-card-content>
             <EducationTable table-header-color="blue"></EducationTable>
           </md-card-content>
         </md-card>
       </div>
-            <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
       >
         <md-card>
@@ -189,6 +191,20 @@
           </md-card-content>
         </md-card>
       </div>
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
+        <md-card>
+          <md-card-header data-background-color="green">
+            <h4 class="title">Tỉ lệ nam/nữ theo độ tuổi</h4>
+            <!-- <p class="category">Phần trăm các tôn giáo trong khu vực</p> -->
+          </md-card-header>
+          <md-card-content>
+            <!-- <ReligionTable table-header-color="green"></ReligionTable> -->
+            <age-chart-card ></age-chart-card>
+          </md-card-content>
+        </md-card>
+      </div>
     </div>
   </div>
 </template>
@@ -196,26 +212,17 @@
 <script>
 import {
   StatsCard,
-  // ChartCard,
-  // NavTabsCard,
-  // NavTabsTable,
   ReligionTable,
   EducationTable,
-  // DropDown,
+  AgeChartCard,
 } from "@/components";
-// import EducationTable from '../components/Tables/EducationTable.vue';
 
 export default {
   components: {
     StatsCard,
-    // ChartCard,
-    // NavTabsCard,
-    // NavTabsTable,
     ReligionTable,
-    // EducationTable
     EducationTable,
-    // NavTabsTable,
-    // DropDown,
+    AgeChartCard,
   },
   data() {
     return {
