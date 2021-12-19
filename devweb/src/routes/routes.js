@@ -5,23 +5,17 @@ import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
 import Typography from "@/pages/Typography.vue";
 import Icons from "@/pages/Icons.vue";
-import Login from "@/pages/Login.vue";
-
-
+import Maps from "@/pages/Maps.vue";
 import Notifications from "@/pages/Notifications.vue";
-
-// import Login from "@views/Login.vue"
-
+import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 
 const routes = [
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-  },
+//   {
+//     path:"login",
+//    name: Login,
+// },
   {
     path: "/app",
-    name: "DashboardLayout",
     component: DashboardLayout,
     children: [
       {
@@ -29,7 +23,6 @@ const routes = [
         name: "Thống kê",
         component: Dashboard,
       },
-  
       {
         path: "user",
         name: "Khai bao",
