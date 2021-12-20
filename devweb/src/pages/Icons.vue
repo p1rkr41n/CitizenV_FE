@@ -34,12 +34,12 @@
               </div>
               <div class="md-layout-item md-small-size-100 md-size-50">
                 <md-field>
-                  <label id="whiter">Giới tính</label>
-                  <md-input
-                    id="whiter"
-                    v-model="gender"
-                    type="email"
-                  ></md-input>
+                  <label id="whiter" for="movie">Giới tính</label>
+                  <md-select v-model="movie" name="movie" id="movie">
+                    <md-option value="fight-club">Nam</md-option>
+                    <md-option value="godfather">Nữ</md-option>
+                    <md-option value="godfather-ii">Khác</md-option>
+                  </md-select>
                 </md-field>
               </div>
               <div class="md-layout-item md-small-size-100 md-size-100">
@@ -272,7 +272,7 @@
                 style="padding-top: 10px"
               >
                 <md-button class="md-raised md-primary md-round">
-                  Tìm kiếm</md-button
+                  Tìm kiếm<md-icon>arrow_downward</md-icon></md-button
                 >
               </div>
             </md-card-header>
@@ -286,12 +286,19 @@
           <template slot="content">
             <span class="md-nav-tabs-title">MENU:</span>
             <md-tabs class="md-success" md-alignment="left">
-              <md-tab id="tab-home" md-label="Danh sách" md-icon="manage_search">
-                
+              <md-tab
+                id="tab-home"
+                md-label="Danh sách"
+                md-icon="manage_search"
+              >
                 <nav-tabs-table></nav-tabs-table>
               </md-tab>
 
-              <md-tab id="tab-pages" md-label="Cá nhân" md-icon="account_circle">
+              <md-tab
+                id="tab-pages"
+                md-label="Cá nhân"
+                md-icon="account_circle"
+              >
                 <nav-tabs-table></nav-tabs-table>
               </md-tab>
             </md-tabs>

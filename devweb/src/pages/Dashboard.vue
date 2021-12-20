@@ -116,7 +116,7 @@
           <template slot="footer">
             <div class="stats">
               <md-icon class="text-danger">warning</md-icon>
-              <a href="#pablo">Chỉ nam nữ thời điểm 01/01/2022</a>
+              <a href="#pablo">Chưa kể giới tính "khác"</a>
             </div>
           </template>
         </stats-card>

@@ -16,8 +16,10 @@
               <div class="md-layout-item md-medium-size-100">
                 <h5>Xin chào,</h5>
                 <div>
+                  <p>ID của bạn: {{}}</p>
+                  <p>Đây là tài khoản thuốc quyền quản lý của {{}}</p>
                   <p>
-                    <a
+                    <a target="_blank"
                       href="https://drive.google.com/file/d/1Wb8sjtNAFTmR0LMbUxrWWbT3g52hV7Va/view"
                       >Link: Mấu điều tra dân số</a
                     >

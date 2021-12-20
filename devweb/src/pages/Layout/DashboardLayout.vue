@@ -22,7 +22,7 @@
       </sidebar-link>
       <sidebar-link to="/app/table">
         <md-icon>content_paste</md-icon>
-        <p>CẤP TÀI KHOẢN</p>
+        <p>QUẢN LÝ TÀI KHOẢN</p>
       </sidebar-link>
      
       <sidebar-link to="/app/icons">

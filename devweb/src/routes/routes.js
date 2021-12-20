@@ -25,12 +25,12 @@ const routes = [
       },
       {
         path: "user",
-        name: "Khai bao",
+        name: "Khai báo dân cư",
         component: UserProfile,
       },
       {
         path: "table",
-        name: "Table List",
+        name: "Quản lý tài khoản",
         component: TableList,
       },
       {

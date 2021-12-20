@@ -6,8 +6,8 @@
       >
         <md-card>
           <md-card-header data-background-color="green">
-            <h4 class="title">Tai khoan</h4>
-            <p class="category">Here is a subtitle for this table</p>
+            <h4 class="title">Tài khoản</h4>
+            <p class="category">Danh sách những tài khoản đã được cấp</p>
           </md-card-header>
           <md-card-content>
             <simple-table table-header-color="green"></simple-table>
