@@ -22,7 +22,6 @@
               <p class="hidden-lg hidden-md">Dashboard</p>
             </md-list-item>
 
-
             <li class="md-list-item">
               <a
                 href="/#/app/typography"

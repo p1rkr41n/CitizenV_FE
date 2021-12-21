@@ -11,10 +11,10 @@ import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 import Population from "@/pages/Population.vue";
 
 const routes = [
-//   {
-//     path:"login",
-//    name: Login,
-// },
+  //   {
+  //     path:"login",
+  //    name: Login,
+  // },
   {
     path: "/app",
     component: DashboardLayout,
@@ -49,13 +49,12 @@ const routes = [
         name: "Tìm kiếm",
         component: Icons,
       },
-     
+
       {
         path: "notifications",
         name: "Notifications",
         component: Notifications,
       },
-     
     ],
   },
 ];

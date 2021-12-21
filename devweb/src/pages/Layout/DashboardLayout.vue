@@ -9,7 +9,7 @@
       <mobile-menu slot="content"></mobile-menu>
 
       <sidebar-link to="/app/typography">
-        <md-icon>library_books</md-icon>
+        <md-icon>home</md-icon>
         <p>GIỚI THIỆU</p>
       </sidebar-link>
       <sidebar-link to="/app/dashboard">
@@ -21,7 +21,7 @@
         <p>DÂN SỐ</p>
       </sidebar-link>
       <sidebar-link to="/app/user">
-        <md-icon>person</md-icon>
+        <md-icon>person_add_alt</md-icon>
         <p>KHAI BÁO</p>
       </sidebar-link>
       <sidebar-link to="/app/table">

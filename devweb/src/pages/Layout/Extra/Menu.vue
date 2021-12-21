@@ -28,8 +28,8 @@
             <img :src="item.image" alt="" />
           </a>
         </li>
-        
-             <li class="button-container">
+
+        <li class="button-container">
           <social-sharing
             :url="shareUrl"
             inline-template
@@ -53,7 +53,6 @@
             </div>
           </social-sharing>
         </li>
-      
       </ul>
     </div>
   </div>

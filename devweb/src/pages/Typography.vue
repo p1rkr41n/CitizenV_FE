@@ -19,9 +19,10 @@
                   <p>ID của bạn: {{}}</p>
                   <p>Đây là tài khoản thuốc quyền quản lý của {{}}</p>
                   <p>
-                    <a target="_blank"
+                    <a
+                      target="_blank"
                       href="https://drive.google.com/file/d/1Wb8sjtNAFTmR0LMbUxrWWbT3g52hV7Va/view"
-                      >Link: Mấu điều tra dân số</a
+                      >Link: Mẫu điều tra dân số</a
                     >
                   </p>
                 </div>
