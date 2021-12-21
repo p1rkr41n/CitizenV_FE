@@ -8,7 +8,11 @@ import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Notifications from "@/pages/Notifications.vue";
 import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
+<<<<<<< HEAD
 import Login from "@/pages/Login.vue"
+=======
+import Population from "@/pages/Population.vue";
+>>>>>>> 4149ab9e3b68778b3ba3c5f5a9db400b8b78fb2c
 
 const routes = [
   {
@@ -25,18 +29,23 @@ const routes = [
         component: Dashboard,
       },
       {
+        path: "Population",
+        name: "Dân số",
+        component: Population,
+      },
+      {
         path: "user",
-        name: "Khai bao",
+        name: "Khai báo dân cư",
         component: UserProfile,
       },
       {
         path: "table",
-        name: "Table List",
+        name: "Quản lý tài khoản",
         component: TableList,
       },
       {
         path: "typography",
-        name: "Intro",
+        name: "Giới thiệu",
         component: Typography,
       },
       {

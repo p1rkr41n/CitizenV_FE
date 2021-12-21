@@ -8,13 +8,17 @@
     >
       <mobile-menu slot="content"></mobile-menu>
 
-       <sidebar-link to="/app/typography">
+      <sidebar-link to="/app/typography">
         <md-icon>library_books</md-icon>
-        <p>Intro</p>
+        <p>GIỚI THIỆU</p>
       </sidebar-link>
       <sidebar-link to="/app/dashboard">
         <md-icon>dashboard</md-icon>
         <p>THỐNG KÊ</p>
+      </sidebar-link>
+      <sidebar-link to="/app/population">
+        <md-icon>people</md-icon>
+        <p>DÂN SỐ</p>
       </sidebar-link>
       <sidebar-link to="/app/user">
         <md-icon>person</md-icon>
@@ -22,9 +26,9 @@
       </sidebar-link>
       <sidebar-link to="/app/table">
         <md-icon>content_paste</md-icon>
-        <p>CẤP TÀI KHOẢN</p>
+        <p>QUẢN LÝ TÀI KHOẢN</p>
       </sidebar-link>
-     
+
       <sidebar-link to="/app/icons">
         <md-icon>find_in_page</md-icon>
         <p>TÌM KIÊM</p>
@@ -37,7 +41,6 @@
         <md-icon>notifications</md-icon>
         <p>Notifications</p>
       </sidebar-link> -->
-    
     </side-bar>
 
     <div class="main-panel">

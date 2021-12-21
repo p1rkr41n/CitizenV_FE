@@ -1,25 +1,36 @@
 <template>
   <div>
-    <md-table v-model="users" @md-selected="onSelect">
+    <md-table v-model="users" md-card @md-selected="onSelect">
       <md-table-row
         slot="md-table-row"
         slot-scope="{ item }"
-        md-selectable="multiple"
-        md-auto-select
+        :class="getClass(item)"
+        md-selectable="single"
       >
-        <md-table-cell>{{ item.name }}</md-table-cell>
-        <md-table-cell>
-          <md-button class="md-just-icon md-simple md-primary">
+        <md-table-cell
+          class="md-layout-item md-medium-size-50 md-xsmall-size-50 md-size-25"
+          >{{ item.name }}</md-table-cell
+        >
+        <md-table-cell
+          class="
+            splitter
+            md-layout-item md-medium-size-50 md-xsmall-size-50 md-size-75
+          "
+        >
+          <!-- <md-button class="md-just-icon md-simple md-primary">
             <md-icon>edit</md-icon>
             <md-tooltip md-direction="top">Edit</md-tooltip>
           </md-button>
           <md-button class="md-just-icon md-simple md-danger">
-            <md-icon>close</md-icon>
-            <md-tooltip md-direction="top">Close</md-tooltip>
-          </md-button>
+            <md-icon>dehaze</md-icon>
+            <md-tooltip md-direction="top">View more</md-tooltip>
+          </md-button> -->
+          {{ item.name }}
         </md-table-cell>
       </md-table-row>
     </md-table>
+    <p>Selected:</p>
+    {{ selected }}
   </div>
 </template>
 
@@ -28,7 +39,7 @@ export default {
   name: "nav-tabs-table",
   data() {
     return {
-      selected: [],
+      selected: {},
       users: [
         {
           name: 'Sign contract for "What are conference organizers afraid of?"',
@@ -43,9 +54,18 @@ export default {
     };
   },
   methods: {
+    getClass: ({ name }) => ({
+      "md-primary": name === 2,
+      "md-accent": name === 3,
+    }),
     onSelect: function (items) {
       this.selected = items;
     },
   },
 };
 </script>
+<style>
+.splitter {
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+</style>
