@@ -23,7 +23,12 @@
               <div class="md-layout-item md-small-size-100 md-size-50">
                 <md-field>
                   <label id="whiter">Họ và tên</label>
-                  <md-input id="whiter" v-model="cname" type="text"></md-input>
+                  <md-input
+                    id="whiter"
+                    v-model="cname"
+                    type="text"
+                    onkeyup="this.value = this.value.toUpperCase();"
+                  ></md-input>
                 </md-field>
               </div>
               <div class="md-layout-item md-small-size-100 md-size-50">
