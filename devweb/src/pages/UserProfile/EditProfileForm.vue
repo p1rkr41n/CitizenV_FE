@@ -131,17 +131,69 @@
               </md-field>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-100">
+              <p style="color: #c9c9c9">Địa chỉ thường trú</p>
+              <div>
+                <v-select
+                  :options="city"
+                  label="title"
+                  placeholder="Tỉnh/thành phố"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-25
+                  "
+                ></v-select>
+
+                <v-select
+                  :options="city"
+                  label="title"
+                  placeholder="Huyện/quận"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-25
+                  "
+                ></v-select>
+
+                <v-select
+                  :options="city"
+                  label="title"
+                  placeholder="Xã/phường/thị trấn"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-20
+                  "
+                ></v-select>
+
+                <v-select
+                  :options="city"
+                  label="title"
+                  placeholder="Thôn/xóm/địa phương"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-20
+                  "
+                ></v-select>
+              </div>
+              <!--  -->
+            </div>
+            <div class="md-layout-item md-small-size-100 md-size-100">
               <md-field>
                 <label>Quê quán</label>
                 <md-input v-model="hometown" type="text" required></md-input>
               </md-field>
             </div>
-            <div class="md-layout-item md-small-size-100 md-size-100">
-              <md-field>
-                <label>Địa chỉ thường trú</label>
-                <md-input v-model="addresss" type="text" required></md-input>
-              </md-field>
-            </div>
+
             <div class="md-layout-item md-small-size-100 md-size-100"></div>
 
             <div class="md-layout-item md-small-size-100 md-size-33">
@@ -209,9 +261,7 @@ export default {
       birth: "01/01/2000",
     };
   },
-  methods: {
-    
-  },
+  methods: {},
 
   //   methods:{
   //     user(){
@@ -238,6 +288,11 @@ export default {
 };
 </script>
 <style>
+.v-select input::placeholder {
+    color: #c9c9c9;
+    border-bottom: 1px solid #c9c9c9;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
