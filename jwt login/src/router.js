@@ -2,6 +2,16 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
+//
+// import Dashboard from "./components/Dashboard.vue";
+// import UserProfile from "./components/UserProfile.vue";
+// import TableList from "./components/TableList.vue";
+// import Typography from "./components/Typography.vue";
+// import Icons from "./components/Icons.vue";
+// import Notifications from "./components/Notifications.vue";
+
+
+
 // lazy-loaded
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -35,7 +45,6 @@ const routes = [
   {
     path: "/admin",
     name: "admin",
-    // lazy-loaded
     component: BoardAdmin,
   },
   {
@@ -50,6 +59,47 @@ const routes = [
     // lazy-loaded
     component: BoardUser,
   },
+  // {
+  //   path: '/app',
+      
+      
+  //   children: [
+  //     {
+  //       path: "dashboard",
+  //       name: "Thống kê",
+  //       component: Dashboard,
+  //     },
+  //     {
+  //       path: "user",
+  //       name: "Khai báo dân cư",
+  //       component: UserProfile,
+  //     },
+  //     {
+  //       path: "table",
+  //       name: "Quản lý tài khoản",
+  //       component: TableList,
+  //     },
+  //     {
+  //       path: "typography",
+  //       name: "Giới thiệu",
+  //       component: Typography,
+  //     },
+  //     {
+  //       path: "icons",
+  //       name: "Tìm kiếm",
+  //       component: Icons,
+  //     },
+     
+  //     {
+  //       path: "notifications",
+  //       name: "Notifications",
+  //       component: Notifications,
+  //     },
+     
+  //   ],
+  // },
+  
+  
 ];
 
 const router = createRouter({

@@ -3,8 +3,16 @@
     <header class="jumbotron">
       <h3>{{ content }}</h3>
     </header>
+   
   </div>
 </template>
+<style scoped>
+  .row{
+    width: 50px;
+    color: red;
+    background-color: aqua;
+  }
+</style>
 
 <script>
 import UserService from "../services/user.service";
