@@ -8,6 +8,7 @@ import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Notifications from "@/pages/Notifications.vue";
 import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
+import Population from "@/pages/Population.vue";
 
 const routes = [
 //   {
@@ -22,6 +23,11 @@ const routes = [
         path: "dashboard",
         name: "Thống kê",
         component: Dashboard,
+      },
+      {
+        path: "Population",
+        name: "Dân số",
+        component: Population,
       },
       {
         path: "user",

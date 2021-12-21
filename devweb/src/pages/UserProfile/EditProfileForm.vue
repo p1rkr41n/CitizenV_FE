@@ -25,7 +25,7 @@
                 md-xsmall-size-100
                 md-size-75
               "
-              style="border: 1px solid green"
+              style="border: 1px solid #c9c9c9"
             ></v-select>
             <div class="md-layout-item md-small-size-100 md-size-20">
               <md-field>
@@ -98,37 +98,28 @@
               </md-field>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-33">
-              <md-field>
-                <label>Giới tính</label>
-                <md-select v-model="gender" name="gender" id="gender" required>
-                  <md-option value="fight-club">Fight Club</md-option>
-                  <md-option value="godfather">Godfather</md-option>
-                  <md-option value="godfather-ii">Godfather II</md-option>
-                  <md-option value="godfather-iii">Godfather III</md-option>
-                  <md-option value="godfellas">Godfellas</md-option>
-                  <md-option value="pulp-fiction">Pulp Fiction</md-option>
-                  <md-option value="scarface">Scarface</md-option>
-                </md-select>
-              </md-field>
+              <div class="md-autocomplete">
+                <md-autocomplete
+                  required
+                  class="gender"
+                  v-model="selectedEmployee"
+                  :md-options="employees"
+                >
+                  <label>Giới tính</label>
+                </md-autocomplete>
+              </div>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-33">
-              <md-field>
-                <label>Tôn giáo</label>
-                <md-select
-                  v-model="religion"
-                  name="religion"
-                  id="religion"
+              <div class="md-autocomplete">
+                <md-autocomplete
                   required
+                  class="religion"
+                  v-model="selectedEmployee"
+                  :md-options="employees"
                 >
-                  <md-option value="fight-club">Fight Club</md-option>
-                  <md-option value="godfather">Godfather</md-option>
-                  <md-option value="godfather-ii">Godfather II</md-option>
-                  <md-option value="godfather-iii">Godfather III</md-option>
-                  <md-option value="godfellas">Godfellas</md-option>
-                  <md-option value="pulp-fiction">Pulp Fiction</md-option>
-                  <md-option value="scarface">Scarface</md-option>
-                </md-select>
-              </md-field>
+                  <label>Tôn giáo</label>
+                </md-autocomplete>
+              </div>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-100">
               <p style="color: #c9c9c9">Địa chỉ thường trú</p>
@@ -143,6 +134,7 @@
                     md-medium-size-100
                     md-xsmall-size-100
                     md-size-25
+                    underline
                   "
                 ></v-select>
 
@@ -156,6 +148,7 @@
                     md-medium-size-100
                     md-xsmall-size-100
                     md-size-25
+                    underline
                   "
                 ></v-select>
 
@@ -169,6 +162,7 @@
                     md-medium-size-100
                     md-xsmall-size-100
                     md-size-20
+                    underline
                   "
                 ></v-select>
 
@@ -182,6 +176,7 @@
                     md-medium-size-100
                     md-xsmall-size-100
                     md-size-20
+                    underline
                   "
                 ></v-select>
               </div>
@@ -197,37 +192,28 @@
             <div class="md-layout-item md-small-size-100 md-size-100"></div>
 
             <div class="md-layout-item md-small-size-100 md-size-33">
-              <md-field>
-                <label>Trình độ văn hoá</label>
-                <md-input
-                  v-model="edulevel"
-                  name="edulevel"
-                  id="edulevel"
+              <div class="md-autocomplete">
+                <md-autocomplete
                   required
+                  class="edulevel"
+                  v-model="selectedEmployee"
+                  :md-options="employees"
                 >
-                  <md-option value="fight-club">Fight Club</md-option>
-                  <md-option value="godfather">Godfather</md-option>
-                  <md-option value="godfather-ii">Godfather II</md-option>
-                  <md-option value="godfather-iii">Godfather III</md-option>
-                  <md-option value="godfellas">Godfellas</md-option>
-                  <md-option value="pulp-fiction">Pulp Fiction</md-option>
-                  <md-option value="scarface">Scarface</md-option>
-                </md-input>
-              </md-field>
+                  <label>Trình độ văn hóa</label>
+                </md-autocomplete>
+              </div>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-66">
-              <md-field>
-                <label for="movie">Nghề nghiệp</label>
-                <md-select v-model="job" name="job" id="job" required>
-                  <md-option value="fight-club">Fight Club</md-option>
-                  <md-option value="godfather">Godfather</md-option>
-                  <md-option value="godfather-ii">Godfather II</md-option>
-                  <md-option value="godfather-iii">Godfather III</md-option>
-                  <md-option value="godfellas">Godfellas</md-option>
-                  <md-option value="pulp-fiction">Pulp Fiction</md-option>
-                  <md-option value="scarface">Scarface</md-option>
-                </md-select>
-              </md-field>
+              <div class="md-autocomplete">
+                <md-autocomplete
+                  required
+                  class="job"
+                  v-model="selectedEmployee"
+                  :md-options="employees"
+                >
+                  <label>Nghề nghiệp</label>
+                </md-autocomplete>
+              </div>
             </div>
             <div class="md-layout-item md-size-100 text-right">
               <md-button class="md-raised md-success">Save Profile</md-button>
@@ -257,6 +243,17 @@ export default {
         { title: "The Code of the Wooster" },
         { title: "Thank You Jeeves" },
         { title: "Thank You Jees" },
+      ],
+      selectedEmployee: null,
+      employees: [
+        "Jim Halpert",
+        "Dwight Schrute",
+        "Michael Scott",
+        "Pam Beesly",
+        "Angela Martin",
+        "Kelly Kapoor",
+        "Ryan Howard",
+        "Kevin Malone",
       ],
       birth: "01/01/2000",
     };
@@ -289,10 +286,11 @@ export default {
 </script>
 <style>
 .v-select input::placeholder {
-    color: #c9c9c9;
-    border-bottom: 1px solid #c9c9c9;
+  color: #c9c9c9;
 }
-
+.underline {
+  border-bottom: 1px solid #c9c9c9 !important;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
