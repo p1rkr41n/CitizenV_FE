@@ -1,7 +1,6 @@
 .md-layout-item{
   padding-right: 15px;
   padding-left: 15px;
-  display: inline-block;
 }
 
 .md-list .md-ripple {
@@ -71,15 +70,4 @@
 
 .tim-row h3 {
     margin-top: 0;
-}
-
-@media (min-width: 1270px) {
-
-.md-vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
 }

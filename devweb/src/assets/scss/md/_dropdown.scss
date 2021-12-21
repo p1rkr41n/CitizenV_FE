@@ -1,4 +1,3 @@
-@import "vue-select/src/scss/vue-select.scss";
 .dropdown-menu{
   position: absolute;
     top: 100%;
@@ -23,7 +22,7 @@
 }
 .dropdown-menu {
     border: 0;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 
     .divider {
         background-color: rgba(0, 0, 0, .12);
@@ -140,6 +139,8 @@
     z-index: -1;
   }
 }
+<<<<<<< HEAD
+=======
 .md-dropdown-vselector{
   top: 100%;
   left: 0;
@@ -162,3 +163,4 @@
 .vs__dropdown-toggle {
   border: 3px solid rgba(255, 255, 255, 0);
 }
+>>>>>>> 4149ab9e3b68778b3ba3c5f5a9db400b8b78fb2c
