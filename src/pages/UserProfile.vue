@@ -14,7 +14,6 @@ import { EditProfileForm, UserCard } from "@/pages";
 export default {
   components: {
     EditProfileForm,
-    // UserCard,
   },
   data() {
     return {
@@ -27,7 +26,6 @@ export default {
       this.$router.push("/");
     }
     this.area = this.$store.getters.getarea.area;
-    // this.secretMessage = await AuthService.getSecretContent();
   },
   methods: {
     logout() {

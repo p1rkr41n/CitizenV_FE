@@ -11,7 +11,7 @@ import SimpleTable from "./Tables/SimpleTable.vue";
 import EducationTable from "./Tables/EducationTable.vue";
 // Dropdowns
 import DropDown from "./Dropdown.vue";
-
+// export all components
 export {
   ChartCard,
   NavTabsCard,

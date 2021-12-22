@@ -316,20 +316,14 @@
 
 <script>
 import {
-  // StatsCard,
-  // ChartCard,
   NavTabsCard,
   NavTabsTable,
-  // OrderedTable,
 } from "@/components";
 
 export default {
   components: {
-    // StatsCard,
-    // ChartCard,
     NavTabsCard,
     NavTabsTable,
-    // OrderedTable,
   },
   data() {
     return {
@@ -351,7 +345,6 @@ export default {
       this.$router.push("/");
     }
     this.area = this.$store.getters.getarea.area;
-    // this.secretMessage = await AuthService.getSecretContent();
   },
   methods: {
     logout() {

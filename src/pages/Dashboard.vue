@@ -197,10 +197,8 @@
         <md-card>
           <md-card-header data-background-color="purple">
             <h4 class="title">Tỉ lệ nam/nữ theo độ tuổi</h4>
-            <!-- <p class="category">Phần trăm các tôn giáo trong khu vực</p> -->
           </md-card-header>
           <md-card-content>
-            <!-- <ReligionTable table-header-color="green"></ReligionTable> -->
             <age-chart-card></age-chart-card>
           </md-card-content>
         </md-card>
@@ -245,7 +243,6 @@ export default {
       this.$router.push("/");
     }
     this.area = this.$store.getters.getarea.area;
-    // this.secretMessage = await AuthService.getSecretContent();
   },
   methods: {
     logout() {

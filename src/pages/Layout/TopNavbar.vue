@@ -39,7 +39,6 @@
                       data-toggle="dropdown"
                     >
                       <md-icon>person</md-icon>
-                      <!-- <span class="notification">5</span> -->
                       <p class="hidden-lg hidden-md">Notifications</p>
                     </md-button>
                     <ul class="dropdown-menu dropdown-menu-right">

@@ -1,6 +1,7 @@
 import axios from "axios";
 const url = "http://localhost:3000/api/";
 export default {
+  // authendication
   login(credentials) {
     return axios
       .post(url + "auth/", credentials)
@@ -12,7 +13,7 @@ export default {
   //     .post(url + 'sign-up/', credentials)
   //     .then(response => response.data);
   // },
-  getSecretContent() {
-    return axios.get(url + "secret-route/").then((response) => response.data);
-  },
+  // getSecretContent() {
+  //   return axios.get(url + "secret-route/").then((response) => response.data);
+  // },
 };

@@ -33,14 +33,6 @@
         <md-icon>find_in_page</md-icon>
         <p>TÌM KIÊM</p>
       </sidebar-link>
-      <!-- <sidebar-link to="/maps">
-        <md-icon>location_on</md-icon>
-        <p>Maps</p>
-      </sidebar-link> -->
-      <!-- <sidebar-link to="/notifications">
-        <md-icon>notifications</md-icon>
-        <p>Notifications</p>
-      </sidebar-link> -->
     </side-bar>
 
     <div class="main-panel">
