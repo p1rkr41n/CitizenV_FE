@@ -4,7 +4,12 @@
       <div class="title">
         <img
           class="md-round"
-          style="box-shadow:  3px 3px 3px #c8c8c8; border-radius: 100px; padding:10px; background-color: #FFFFE6;"
+          style="
+            box-shadow: 3px 3px 3px #c8c8c8;
+            border-radius: 100px;
+            padding: 10px;
+            background-color: #ffffe6;
+          "
           src="@/assets/img/logo.png"
         />
         <div class="md-title">CitizenV</div>
@@ -14,54 +19,86 @@
       <div class="form">
         <md-field>
           <label>Tài khoản</label>
-          <md-input v-model="login.username" autofocus></md-input>
+          <md-input v-model="username" autofocus></md-input>
         </md-field>
 
         <md-field md-has-password>
           <label>Mật khẩu</label>
-          <md-input v-model="login.password" type="password"></md-input>
+          <md-input v-model="password" type="password"></md-input>
         </md-field>
       </div>
 
       <div class="actions md-layout md-alignment-center-space-between">
         <a></a>
-        <md-button class="md-raised md-primary md-round" @click="auth"
+        <md-button class="md-raised md-primary md-round" @click="login" value="Login"
           >Đăng nhập</md-button
         >
+          <!-- <p v-if="msg">{{ msg }}</p> -->
       </div>
 
-      <div class="loading-overlay" v-if="loading">
+      <!-- <div class="loading-overlay" v-if="loading">
         <md-progress-spinner
           md-mode="indeterminate"
           :md-stroke="2"
         ></md-progress-spinner>
-      </div>
+      </div> -->
     </md-content>
     <div class="background" />
   </div>
 </template>
 
 <script>
+import AuthService from "@/services/AuthService.js";
+
 export default {
   name: "App",
+  //   data() {
+  //     return {
+  //       loading: false,
+  //       login: {
+  //         username: "",
+  //         password: "",
+  //       },
+  //     };
+  //   },
+  //   methods: {
+  //     auth() {
+  //       // your code to login user
+  //       // this is only for example of loading
+  //       window.location = "/#/app/dashboard/";
+  //       this.loading = true;
+  //       setTimeout(() => {
+  //         this.loading = false;
+  //       }, 5000);
+  //     },
+  //   },
+  // };
   data() {
     return {
-      loading: false,
-      login: {
-        username: "",
-        password: "",
-      },
+      username: "",
+      password: "",
+      // msg: "",
     };
   },
   methods: {
-    auth() {
-      // your code to login user
-      // this is only for example of loading
-      window.location = "/#/app/dashboard/";
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 5000);
+    async login() {
+      try {
+        const credentials = {
+          username: this.username,
+          password: this.password,
+        };
+        const response = await AuthService.login(credentials);
+        // this.msg = response.msg;
+        const token = response.token;
+        const name = response.name;
+        const area = response.area;
+        const idArea = response.idArea;
+        console.log(token, name, area, idArea);
+        this.$store.dispatch("login", { token, name, area, idArea });
+        this.$router.push("/app/dashboard/");
+      } catch (error) {
+        // this.msg = error.response.data.msg;
+      }
     },
   },
 };

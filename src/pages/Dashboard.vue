@@ -201,7 +201,7 @@
           </md-card-header>
           <md-card-content>
             <!-- <ReligionTable table-header-color="green"></ReligionTable> -->
-            <age-chart-card ></age-chart-card>
+            <age-chart-card></age-chart-card>
           </md-card-content>
         </md-card>
       </div>
@@ -210,6 +210,7 @@
 </template>
 
 <script>
+import AuthService from "@/services/AuthService.js";
 import {
   StatsCard,
   ReligionTable,
@@ -235,7 +236,22 @@ export default {
         { title: "Thank You Jeeves" },
         { title: "Thank You Jees" },
       ],
+      area: "",
     };
+  },
+  //check if user is logged in
+  async created() {
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/");
+    }
+    this.area = this.$store.getters.getarea.area;
+    this.secretMessage = await AuthService.getSecretContent();
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/");
+    },
   },
 };
 </script>

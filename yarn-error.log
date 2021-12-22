@@ -1,30 +1,30 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Binh\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add ãxios
+  /usr/local/bin/node /usr/local/bin/yarn add Axios
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Binh\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Nmap;C:\Users\Binh\AppData\Roaming\npm;C:\Users\Binh\.dotnet\tools;C:\Users\Binh\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Binh\AppData\Local\GitHubDesktop\bin
+  /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin
 
 Yarn version: 
   1.22.17
 
 Node version: 
-  14.17.6
+  16.13.1
 
 Platform: 
-  win32 x64
+  linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/ãxios: Bad Request
-      at Request.params.callback [as _callback] (C:\Users\Binh\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
-      at Request.self.callback (C:\Users\Binh\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
-      at Request.emit (events.js:400:28)
-      at Request.<anonymous> (C:\Users\Binh\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
-      at Request.emit (events.js:400:28)
-      at IncomingMessage.<anonymous> (C:\Users\Binh\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
-      at Object.onceWrapper (events.js:519:28)
-      at IncomingMessage.emit (events.js:412:35)
-      at endReadableNT (internal/streams/readable.js:1317:12)
-      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+  Error: https://registry.yarnpkg.com/Axios: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67029:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141855:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141777:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
 
 npm manifest: 
   {
@@ -38,15 +38,22 @@ npm manifest:
       "lint": "vue-cli-service lint"
     },
     "dependencies": {
-      "core-js": "3.18.2",
+      "apexcharts": "^3.32.0",
+      "axios": "^0.24.0",
       "chartist": "0.11.4",
+      "core-js": "3.18.2",
       "google-maps": "4.3.3",
       "vue": "2.6.14",
+      "vue-apexcharts": "^1.6.2",
       "vue-clickaway": "2.2.2",
       "vue-github-buttons": "3.1.0",
       "vue-material": "1.0.0-beta-15",
       "vue-router": "3.5.2",
-      "vue-social-sharing": "3.0.8"
+      "vue-select": "^3.16.0",
+      "vue-social-sharing": "3.0.8",
+      "vue3-apexcharts": "^1.4.1",
+      "vuex": "^3.6.2",
+      "vuex-persistedstate": "^4.1.0"
     },
     "devDependencies": {
       "@vue/cli-plugin-babel": "4.5.13",
@@ -55,10 +62,10 @@ npm manifest:
       "@vue/cli-service": "4.5.13",
       "@vue/eslint-config-prettier": "6.0.0",
       "babel-eslint": "10.1.0",
+      "es6-promise": "4.2.8",
       "eslint": "7.32.0",
       "eslint-plugin-prettier": "4.0.0",
       "eslint-plugin-vue": "7.19.1",
-      "es6-promise": "4.2.8",
       "prettier": "2.4.1",
       "sass": "1.42.1",
       "sass-loader": "10.1.1",
@@ -1832,6 +1839,18 @@ Lockfile:
       normalize-path "^3.0.0"
       picomatch "^2.0.4"
   
+  apexcharts@^3.32.0:
+    version "3.32.0"
+    resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.32.0.tgz#97e3f916af1c3c0109bc8c88f95b68dfe99c294a"
+    integrity sha512-9VUyiTR2RgD4NIJOOdKxxi8tjzrKCBMr7HjWxsw+5lDPu/tZJLVudpgFhlNTIy3CbhxQ4edaiTttmbo6eDDgiA==
+    dependencies:
+      svg.draggable.js "^2.2.2"
+      svg.easing.js "^2.0.0"
+      svg.filter.js "^2.0.2"
+      svg.pathmorphing.js "^0.1.3"
+      svg.resize.js "^1.4.3"
+      svg.select.js "^3.0.1"
+  
   aproba@^1.1.1:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
@@ -1980,6 +1999,13 @@ Lockfile:
     version "1.11.0"
     resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
     integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+  
+  axios@^0.24.0:
+    version "0.24.0"
+    resolved "https://registry.yarnpkg.com/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
+    integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
+    dependencies:
+      follow-redirects "^1.14.4"
   
   babel-eslint@10.1.0:
     version "10.1.0"
@@ -3184,6 +3210,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
     integrity sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==
   
+  deepmerge@^4.2.2:
+    version "4.2.2"
+    resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+    integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
+  
   default-gateway@^4.2.0:
     version "4.2.0"
     resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -4115,6 +4146,11 @@ Lockfile:
     version "1.14.5"
     resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.5.tgz#f09a5848981d3c772b5392309778523f8d85c381"
     integrity sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
+  
+  follow-redirects@^1.14.4:
+    version "1.14.6"
+    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.6.tgz#8cfb281bbc035b3c067d6cd975b0f6ade6e855cd"
+    integrity sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==
   
   for-in@^1.0.2:
     version "1.0.2"
@@ -7553,6 +7589,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.3.tgz#aa40edac170445b9a431e17bb62c0b881b9c4123"
     integrity sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw==
   
+  shvl@^2.0.3:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/shvl/-/shvl-2.0.3.tgz#eb4bd37644f5684bba1fc52c3010c96fb5e6afd1"
+    integrity sha512-V7C6S9Hlol6SzOJPnQ7qzOVEWUQImt3BNmmzh40wObhla3XOYMe4gGiYzLrJd5TFa+cI2f9LKIRJTTKZSTbWgw==
+  
   side-channel@^1.0.4:
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/side-channel/-/side-channel-1.0.4.tgz#efce5c8fdc104ee751b25c58d4290011fa5ea2cf"
@@ -7968,6 +8009,61 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
     integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
+  
+  svg.draggable.js@^2.2.2:
+    version "2.2.2"
+    resolved "https://registry.yarnpkg.com/svg.draggable.js/-/svg.draggable.js-2.2.2.tgz#c514a2f1405efb6f0263e7958f5b68fce50603ba"
+    integrity sha512-JzNHBc2fLQMzYCZ90KZHN2ohXL0BQJGQimK1kGk6AvSeibuKcIdDX9Kr0dT9+UJ5O8nYA0RB839Lhvk4CY4MZw==
+    dependencies:
+      svg.js "^2.0.1"
+  
+  svg.easing.js@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/svg.easing.js/-/svg.easing.js-2.0.0.tgz#8aa9946b0a8e27857a5c40a10eba4091e5691f12"
+    integrity sha1-iqmUawqOJ4V6XEChDrpAkeVpHxI=
+    dependencies:
+      svg.js ">=2.3.x"
+  
+  svg.filter.js@^2.0.2:
+    version "2.0.2"
+    resolved "https://registry.yarnpkg.com/svg.filter.js/-/svg.filter.js-2.0.2.tgz#91008e151389dd9230779fcbe6e2c9a362d1c203"
+    integrity sha1-kQCOFROJ3ZIwd5/L5uLJo2LRwgM=
+    dependencies:
+      svg.js "^2.2.5"
+  
+  svg.js@>=2.3.x, svg.js@^2.0.1, svg.js@^2.2.5, svg.js@^2.4.0, svg.js@^2.6.5:
+    version "2.7.1"
+    resolved "https://registry.yarnpkg.com/svg.js/-/svg.js-2.7.1.tgz#eb977ed4737001eab859949b4a398ee1bb79948d"
+    integrity sha512-ycbxpizEQktk3FYvn/8BH+6/EuWXg7ZpQREJvgacqn46gIddG24tNNe4Son6omdXCnSOaApnpZw6MPCBA1dODA==
+  
+  svg.pathmorphing.js@^0.1.3:
+    version "0.1.3"
+    resolved "https://registry.yarnpkg.com/svg.pathmorphing.js/-/svg.pathmorphing.js-0.1.3.tgz#c25718a1cc7c36e852ecabc380e758ac09bb2b65"
+    integrity sha512-49HWI9X4XQR/JG1qXkSDV8xViuTLIWm/B/7YuQELV5KMOPtXjiwH4XPJvr/ghEDibmLQ9Oc22dpWpG0vUDDNww==
+    dependencies:
+      svg.js "^2.4.0"
+  
+  svg.resize.js@^1.4.3:
+    version "1.4.3"
+    resolved "https://registry.yarnpkg.com/svg.resize.js/-/svg.resize.js-1.4.3.tgz#885abd248e0cd205b36b973c4b578b9a36f23332"
+    integrity sha512-9k5sXJuPKp+mVzXNvxz7U0uC9oVMQrrf7cFsETznzUDDm0x8+77dtZkWdMfRlmbkEEYvUn9btKuZ3n41oNA+uw==
+    dependencies:
+      svg.js "^2.6.5"
+      svg.select.js "^2.1.2"
+  
+  svg.select.js@^2.1.2:
+    version "2.1.2"
+    resolved "https://registry.yarnpkg.com/svg.select.js/-/svg.select.js-2.1.2.tgz#e41ce13b1acff43a7441f9f8be87a2319c87be73"
+    integrity sha512-tH6ABEyJsAOVAhwcCjF8mw4crjXSI1aa7j2VQR8ZuJ37H2MBUbyeqYr5nEO7sSN3cy9AR9DUwNg0t/962HlDbQ==
+    dependencies:
+      svg.js "^2.2.5"
+  
+  svg.select.js@^3.0.1:
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/svg.select.js/-/svg.select.js-3.0.1.tgz#a4198e359f3825739226415f82176a90ea5cc917"
+    integrity sha512-h5IS/hKkuVCbKSieR9uQCj9w+zLHoPh+ce19bBYyqF53g6mnPB8sAtIbe1s9dh2S2fCmYX2xel1Ln3PJBbK4kw==
+    dependencies:
+      svg.js "^2.6.5"
   
   svgo@^1.0.0:
     version "1.3.2"
@@ -8464,6 +8560,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
     integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
   
+  vue-apexcharts@^1.6.2:
+    version "1.6.2"
+    resolved "https://registry.yarnpkg.com/vue-apexcharts/-/vue-apexcharts-1.6.2.tgz#0547826067f97e8ea67ca9423e524eb6669746ad"
+    integrity sha512-9HS3scJwWgKjmkcWIf+ndNDR0WytUJD8Ju0V2ZYcjYtlTLwJAf2SKUlBZaQTkDmwje/zMgulvZRi+MXmi+WkKw==
+  
   vue-clickaway@2.2.2:
     version "2.2.2"
     resolved "https://registry.yarnpkg.com/vue-clickaway/-/vue-clickaway-2.2.2.tgz#cecf6839575e8b2afc5d3edb3efb616d293dbb44"
@@ -8540,6 +8641,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.5.2.tgz#5f55e3f251970e36c3e8d88a7cd2d67a350ade5c"
     integrity sha512-807gn82hTnjCYGrnF3eNmIw/dk7/GE4B5h69BlyCK9KHASwSloD1Sjcn06zg9fVG4fYH2DrsNBZkpLtb25WtaQ==
   
+  vue-select@^3.16.0:
+    version "3.16.0"
+    resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.16.0.tgz#db2ee2ddf80bd8876ce57738107b8a1a741862f4"
+    integrity sha512-F0x7HXTUc5eq7YSjR0uX77RGA+Yk2+I8aMW+NePyPqRX9OPSiDtKpezFIFhnhxqrOvMh4uVR0jHkXIDmzs6nYQ==
+  
   vue-social-sharing@3.0.8:
     version "3.0.8"
     resolved "https://registry.yarnpkg.com/vue-social-sharing/-/vue-social-sharing-3.0.8.tgz#5927c54a91b8cb4965dfa492c2ad4553591ba00c"
@@ -8573,10 +8679,28 @@ Lockfile:
     dependencies:
       vue "^2.6.10"
   
+  vue3-apexcharts@^1.4.1:
+    version "1.4.1"
+    resolved "https://registry.yarnpkg.com/vue3-apexcharts/-/vue3-apexcharts-1.4.1.tgz#ea561308430a1c5213b7f17c44ba3c845f6c490d"
+    integrity sha512-96qP8JDqB9vwU7bkG5nVU+E0UGQn7yYQVqUUCLQMYWDuQyu2vE77H/UFZ1yI+hwzlSTBKT9BqnNG8JsFegB3eg==
+  
   vue@2.6.14, vue@^2.6.10:
     version "2.6.14"
     resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
     integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
+  
+  vuex-persistedstate@^4.1.0:
+    version "4.1.0"
+    resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-4.1.0.tgz#127165f85f5b4534fb3170a5d3a8be9811bd2a53"
+    integrity sha512-3SkEj4NqwM69ikJdFVw6gObeB0NHyspRYMYkR/EbhR0hbvAKyR5gksVhtAfY1UYuWUOCCA0QNGwv9pOwdj+XUQ==
+    dependencies:
+      deepmerge "^4.2.2"
+      shvl "^2.0.3"
+  
+  vuex@^3.6.2:
+    version "3.6.2"
+    resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.6.2.tgz#236bc086a870c3ae79946f107f16de59d5895e71"
+    integrity sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==
   
   watchpack-chokidar2@^2.0.1:
     version "2.0.1"

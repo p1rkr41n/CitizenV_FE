@@ -1,4 +1,3 @@
-
 import Vue from "vue";
 import VueRouter from "vue-router";
 import vSelect from "vue-select";
@@ -20,7 +19,11 @@ import Chartist from "chartist";
 import VueApexCharts from "vue-apexcharts";
 
 //Auth:
-
+import store from "./store";
+import Axios from "axios";
+Vue.config.productionTip = false;
+// set auth header
+Axios.defaults.headers.common["token"] = `${store.state.token}`; // get token from store
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
@@ -43,6 +46,7 @@ new Vue({
   el: "#app",
   render: (h) => h(App),
   router,
+  store,
   data: {
     Chartist: Chartist,
   },

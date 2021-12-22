@@ -16,5 +16,24 @@ export default {
     EditProfileForm,
     // UserCard,
   },
+  data() {
+    return {
+      area: "",
+    };
+  },
+  //check if user is logged in
+  async created() {
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/");
+    }
+    this.area = this.$store.getters.getarea.area;
+    this.secretMessage = await AuthService.getSecretContent();
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/");
+    },
+  },
 };
 </script>

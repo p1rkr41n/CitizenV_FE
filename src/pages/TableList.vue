@@ -15,9 +15,9 @@
         </md-card>
       </div>
 
- <div class="md-layout-item md-size-100 text-right">
-            <md-button class="md-raised md-success">Save tai khoan</md-button>
-          </div>
+      <div class="md-layout-item md-size-100 text-right">
+        <md-button class="md-raised md-success">Save tai khoan</md-button>
+      </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
@@ -33,9 +33,8 @@
       </div>
     </div>
     <div class="md-layout-item md-size-100 text-right">
-            <md-button class="md-raised md-success">Save gi do</md-button>
-          </div>
-    
+      <md-button class="md-raised md-success">Save gi do</md-button>
+    </div>
   </div>
 </template>
 
@@ -46,6 +45,25 @@ export default {
   components: {
     ReligionTable,
     SimpleTable,
+  },
+  data() {
+    return {
+      area: "",
+    };
+  },
+  //check if user is logged in
+  async created() {
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/");
+    }
+    this.area = this.$store.getters.getarea.area;
+    this.secretMessage = await AuthService.getSecretContent();
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/");
+    },
   },
 };
 </script>

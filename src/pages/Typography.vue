@@ -19,7 +19,8 @@
                   <p>ID của bạn: {{}}</p>
                   <p>Đây là tài khoản thuốc quyền quản lý của {{}}</p>
                   <p>
-                    <a target="_blank"
+                    <a
+                      target="_blank"
                       href="https://drive.google.com/file/d/1Wb8sjtNAFTmR0LMbUxrWWbT3g52hV7Va/view"
                       >Link: Mấu điều tra dân số</a
                     >
@@ -45,6 +46,25 @@ export default {
     imgLogo: {
       type: String,
       default: require("@/assets/img/logo.png"),
+    },
+  },
+  data() {
+    return {
+      area: "",
+    };
+  },
+  //check if user is logged in
+  async created() {
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/");
+    }
+    this.area = this.$store.getters.getarea.area;
+    this.secretMessage = await AuthService.getSecretContent();
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/");
     },
   },
 };
