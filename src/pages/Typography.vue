@@ -16,8 +16,8 @@
               <div class="md-layout-item md-medium-size-100">
                 <h5>Xin chào,</h5>
                 <div>
-                  <p>ID của bạn: {{}}</p>
-                  <p>Đây là tài khoản thuốc quyền quản lý của {{}}</p>
+                  <p>ID của bạn: {{ getname }}</p>
+                  <p>Đây là tài khoản thuốc quyền quản lý của {{ getarea }}</p>
                   <p>
                     <a
                       target="_blank"
@@ -34,32 +34,29 @@
     </div>
   </div>
 </template>
-
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: {
     dataBackgroundColor: {
       type: String,
       default: "",
     },
-
     imgLogo: {
       type: String,
       default: require("@/assets/img/logo.png"),
     },
   },
   data() {
-    return {
-      area: "",
-    };
+    return {};
   },
+  computed: mapGetters(["getarea", "getname"]), // get from store
   //check if user is logged in
   async created() {
     if (!this.$store.getters.isLoggedIn) {
       this.$router.push("/");
     }
-    this.area = this.$store.getters.getarea.area;
-    this.secretMessage = await AuthService.getSecretContent();
+    // this.secretMessage = await AuthService.getSecretContent();
   },
   methods: {
     logout() {

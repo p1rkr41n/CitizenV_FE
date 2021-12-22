@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import vSelect from "vue-select";
-
+import { mapGetters } from "vuex";
 import App from "./App";
 
 // router setup
@@ -50,4 +50,5 @@ new Vue({
   data: {
     Chartist: Chartist,
   },
+  computed: mapGetters(["isLoggedIn", "getarea", "getidarea", "getname"]),
 });

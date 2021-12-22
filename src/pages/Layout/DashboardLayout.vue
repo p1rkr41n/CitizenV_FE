@@ -9,7 +9,7 @@
       <mobile-menu slot="content"></mobile-menu>
 
       <sidebar-link to="/app/typography">
-        <md-icon>library_books</md-icon>
+        <md-icon>home</md-icon>
         <p>GIỚI THIỆU</p>
       </sidebar-link>
       <sidebar-link to="/app/dashboard">

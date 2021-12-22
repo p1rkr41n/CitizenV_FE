@@ -15,6 +15,7 @@
         <div class="md-title">CitizenV</div>
         <div class="md-body-1">Ứng dụng điều tra dân số Việt Nam</div>
       </div>
+      <p v-if="msg" class="text-center" style="color: red">{{ msg }}</p>
 
       <div class="form">
         <md-field>
@@ -29,19 +30,14 @@
       </div>
 
       <div class="actions md-layout md-alignment-center-space-between">
-        <a></a>
-        <md-button class="md-raised md-primary md-round" @click="login" value="Login"
+        <a> </a>
+        <md-button
+          class="md-raised md-primary md-round"
+          @click="login"
+          value="Login"
           >Đăng nhập</md-button
         >
-          <!-- <p v-if="msg">{{ msg }}</p> -->
       </div>
-
-      <!-- <div class="loading-overlay" v-if="loading">
-        <md-progress-spinner
-          md-mode="indeterminate"
-          :md-stroke="2"
-        ></md-progress-spinner>
-      </div> -->
     </md-content>
     <div class="background" />
   </div>
@@ -52,35 +48,23 @@ import AuthService from "@/services/AuthService.js";
 
 export default {
   name: "App",
-  //   data() {
-  //     return {
-  //       loading: false,
-  //       login: {
-  //         username: "",
-  //         password: "",
-  //       },
-  //     };
-  //   },
-  //   methods: {
-  //     auth() {
-  //       // your code to login user
-  //       // this is only for example of loading
-  //       window.location = "/#/app/dashboard/";
-  //       this.loading = true;
-  //       setTimeout(() => {
-  //         this.loading = false;
-  //       }, 5000);
-  //     },
-  //   },
-  // };
   data() {
     return {
       username: "",
       password: "",
-      // msg: "",
+      msg: "",
     };
   },
+  //check if user is logged in 
+  async created() {
+    if (this.$store.getters.isLoggedIn) {
+      this.$router.push("/app/dashboard");
+    }
+    this.area = this.$store.getters.getarea.area;
+    // this.secretMessage = await AuthService.getSecretContent();
+  },
   methods: {
+    // check login
     async login() {
       try {
         const credentials = {
@@ -93,11 +77,12 @@ export default {
         const name = response.name;
         const area = response.area;
         const idArea = response.idArea;
-        console.log(token, name, area, idArea);
-        this.$store.dispatch("login", { token, name, area, idArea });
+        const id = this.username;
+        // console.log(token, name, area, idArea);
+        this.$store.dispatch("login", { token, name, area, idArea, id });
         this.$router.push("/app/dashboard/");
       } catch (error) {
-        // this.msg = error.response.data.msg;
+        this.msg = "Nhập sai tài khoản hoặc mật khẩu!";
       }
     },
   },

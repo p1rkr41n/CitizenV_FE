@@ -1,4 +1,5 @@
 <template>
+<!-- form on PC -->
   <md-toolbar md-elevation="0" class="md-transparent">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
@@ -22,7 +23,6 @@
               <p class="hidden-lg hidden-md">Dashboard</p>
             </md-list-item>
 
-
             <li class="md-list-item">
               <a
                 href="/#/app/typography"
@@ -43,8 +43,12 @@
                       <p class="hidden-lg hidden-md">Notifications</p>
                     </md-button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="#">ID:00000001</a></li>
-                      <li><a href="#">Logut</a></li>
+                      <li>
+                        <a href="#/app/typography" style="text-overflow: ellipsis ellipsis;" >ID: {{ getname }}</a>
+                      </li>
+                      <li>
+                        <a value="Logout" @click="logout" href="#">Logout</a>
+                      </li>
                     </ul>
                   </drop-down>
                 </div>
@@ -58,9 +62,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
+      name: "",
       selectedEmployee: null,
       employees: [
         "Jim Halpert",
@@ -74,9 +80,15 @@ export default {
       ],
     };
   },
+
+  computed: mapGetters(["getarea", "getname"]), // get from store
   methods: {
     toggleSidebar() {
       this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
+    },
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/");
     },
   },
 };

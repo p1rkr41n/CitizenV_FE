@@ -1,42 +1,28 @@
 <template>
+<!-- form on moblie -->
   <ul class="nav nav-mobile-menu">
-    <li>
-      <md-field>
-        <label>Search</label>
-        <md-input v-model="search" type="text"></md-input>
-      </md-field>
-    </li>
-    <li>
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <i class="material-icons">dashboard</i>
-        <p>Dashboard</p></a
-      >
-    </li>
     <li>
       <drop-down>
         <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="material-icons">notifications</i>
-          <span class="notification">5</span>
-          <p>Notifications</p>
+          <i class="material-icons">person</i>
+          <p>Tài khoản</p>
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Mike John responded to your email</a></li>
-          <li><a href="#">You have 5 new tasks</a></li>
-          <li><a href="#">You're now friend with Andrew</a></li>
-          <li><a href="#">Another Notification</a></li>
-          <li><a href="#">Another One</a></li>
+          <li>
+            <a href="#/app/typography" style="text-overflow: ellipsis ellipsis"
+              >ID: {{ getname }}</a
+            >
+          </li>
+          <li>
+            <a value="Logout" @click="logout" href="#">Logout</a>
+          </li>
         </ul>
       </drop-down>
-    </li>
-    <li>
-      <a href="#" data-toggle="dropdown" class="dropdown-toggle"
-        ><i class="material-icons">person</i>
-        <p>Profile</p></a
-      >
     </li>
   </ul>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -54,5 +40,6 @@ export default {
       ],
     };
   },
+  computed: mapGetters(["getarea", "getname"]), // get from store
 };
 </script>

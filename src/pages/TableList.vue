@@ -57,7 +57,7 @@ export default {
       this.$router.push("/");
     }
     this.area = this.$store.getters.getarea.area;
-    this.secretMessage = await AuthService.getSecretContent();
+    // this.secretMessage = await AuthService.getSecretContent();
   },
   methods: {
     logout() {

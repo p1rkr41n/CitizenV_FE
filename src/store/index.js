@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import Axios from "axios";
 import createPersistedState from "vuex-persistedstate";
+// import { compile } from "vue/types/umd";
 
 Vue.use(Vuex);
 //set default local storage
@@ -11,6 +12,7 @@ const getDefaultState = () => {
     name: "",
     area: "",
     idArea: "",
+    // id: "",
   };
 };
 //set local storage
@@ -25,7 +27,7 @@ export default new Vuex.Store({
     getarea: (state) => {
       return state.area;
     },
-    getiDarea: (state) => {
+    getidarea: (state) => {
       return state.idArea;
     },
     getname: (state) => {
@@ -62,4 +64,5 @@ export default new Vuex.Store({
       commit("RESET", "");
     },
   },
+
 });
