@@ -5,15 +5,12 @@ import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
 import Typography from "@/pages/Typography.vue";
 import Icons from "@/pages/Icons.vue";
-import Maps from "@/pages/Maps.vue";
-import Notifications from "@/pages/Notifications.vue";
-import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 import Population from "@/pages/Population.vue";
 import Login from "@/pages/Login.vue";
 
 const routes = [
     {
-    path:"/login",
+    path:"/",
     name: Login,
     component: Login,
   },
@@ -52,13 +49,6 @@ const routes = [
         name: "Tìm kiếm",
         component: Icons,
       },
-     
-      {
-        path: "notifications",
-        name: "Notifications",
-        component: Notifications,
-      },
-     
     ],
   },
 ];

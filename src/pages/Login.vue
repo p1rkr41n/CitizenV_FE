@@ -1,34 +1,41 @@
 <template>
   <div class="centered-container">
     <md-content class="md-elevation-3">
-
       <div class="title">
-        <img src="https://vuematerial.io/assets/logo-color.png">
-        <div class="md-title">Vue Material</div>
-        <div class="md-body-1">Build beautiful apps with Material Design and Vue.js</div>
+        <img
+          class="md-round"
+          style="box-shadow:  3px 3px 3px #c8c8c8; border-radius: 100px; padding:10px; background-color: #FFFFE6;"
+          src="@/assets/img/logo.png"
+        />
+        <div class="md-title">CitizenV</div>
+        <div class="md-body-1">Ứng dụng điều tra dân số Việt Nam</div>
       </div>
 
       <div class="form">
         <md-field>
-          <label>E-mail</label>
+          <label>Tài khoản</label>
           <md-input v-model="login.username" autofocus></md-input>
         </md-field>
 
         <md-field md-has-password>
-          <label>Password</label>
+          <label>Mật khẩu</label>
           <md-input v-model="login.password" type="password"></md-input>
         </md-field>
       </div>
 
       <div class="actions md-layout md-alignment-center-space-between">
-        <a href="/resetpassword">Reset password</a>
-        <md-button class="md-raised md-primary" @click="auth">Log in</md-button>
+        <a></a>
+        <md-button class="md-raised md-primary md-round" @click="auth"
+          >Đăng nhập</md-button
+        >
       </div>
 
       <div class="loading-overlay" v-if="loading">
-        <md-progress-spinner md-mode="indeterminate" :md-stroke="2"></md-progress-spinner>
+        <md-progress-spinner
+          md-mode="indeterminate"
+          :md-stroke="2"
+        ></md-progress-spinner>
       </div>
-
     </md-content>
     <div class="background" />
   </div>
@@ -42,20 +49,21 @@ export default {
       loading: false,
       login: {
         username: "",
-        password: ""
-      }
+        password: "",
+      },
     };
   },
   methods: {
     auth() {
       // your code to login user
       // this is only for example of loading
+      window.location = "/#/app/dashboard/";
       this.loading = true;
       setTimeout(() => {
         this.loading = false;
       }, 5000);
-    }
-  }
+    },
+  },
 };
 </script>
 
