@@ -30,16 +30,11 @@ export default {
     };
   },
   async accountcreated() {
-    axios.get(`http://localhost:3000/api/user/all`).then((res) => {
-   
-      this.account = this.res.account.map((item) => {
-        return {
-          username: item.username,
-          username: item.name,
-          managedArea: item.managedArea,
-        };
-      });
-  
+    axios.get(`http://localhost:3000/api/user/all`).then((response) => {
+      this.info = response.data.bpi;
+      this.info = response.data.bpi;
+      this.info = response.data.bpi;
+      this.info = response.data.bpi;
     });
   },
 };

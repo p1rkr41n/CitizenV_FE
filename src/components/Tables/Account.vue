@@ -10,7 +10,6 @@
         <md-table-cell md-label="scopeName">{{ item.scopeName }}</md-table-cell>
         <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
       </md-table-row>
-       
     </md-table>
   </div>
 </template>
@@ -38,11 +37,12 @@ export default {
     };
   },
   async accountcreated() {
-    axios.post(`http://localhost:3000/api/user`).then((res) => {
+    axios.post(`http://localhost:3000/api/user`).then((response) => {
+      this.info = response.data.bpi;
+      this.info = response.data.bpi;
+      this.info = response.data.bpi;
+      this.info = response.data.bpi;
     });
   },
-
-  
-
 };
 </script>
