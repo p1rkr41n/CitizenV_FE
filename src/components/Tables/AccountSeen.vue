@@ -31,15 +31,15 @@ export default {
   },
   async accountcreated() {
     axios.get(`http://localhost:3000/api/user/all`).then((res) => {
-      // console.log(this.account);
-      this.account = this.account.map((item, index) => {
+   
+      this.account = this.res.account.map((item) => {
         return {
           username: item.username,
           username: item.name,
           managedArea: item.managedArea,
         };
       });
-      // console.log(this.index);
+  
     });
   },
 };
