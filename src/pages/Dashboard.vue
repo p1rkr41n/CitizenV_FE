@@ -89,7 +89,7 @@
 
           <template slot="content">
             <p class="category">Dân số</p>
-            <h3 class="title">9900000</h3>
+            <h3 class="title">{{ population }}</h3>
           </template>
 
           <template slot="footer">
@@ -110,12 +110,12 @@
 
           <template slot="content">
             <p class="category">Tỉ lệ nam/nữ</p>
-            <h3 class="title">10%</h3>
+            <h3 class="title">{{ maleonfemale }}</h3>
           </template>
 
           <template slot="footer">
             <div class="stats">
-              <md-icon class="text-danger">warning</md-icon>
+              <md-icon class="text-info">tag</md-icon>
               <a href="#pablo">Chưa kể giới tính "khác"</a>
             </div>
           </template>
@@ -131,13 +131,13 @@
 
           <template slot="content">
             <p class="category">Tỉ lệ thất nghiệp</p>
-            <h3 class="title">10%</h3>
+            <h3 class="title">{{ outofjob }}%</h3>
           </template>
 
           <template slot="footer">
-            <div class="stats">
-              <md-icon>local_offer</md-icon>
-              10% dân cư không có việc làm
+            <div class="text-danger">
+              <md-icon class="text-danger">warning</md-icon>
+              {{ outofjob }}% dân cư không có việc làm
             </div>
           </template>
         </stats-card>
@@ -152,13 +152,13 @@
 
           <template slot="content">
             <p class="category">Tỉ lệ mù chữ</p>
-            <h3 class="title">20%</h3>
+            <h3 class="title">{{ illiteracy }}%</h3>
           </template>
 
           <template slot="footer">
             <div class="stats">
               <md-icon>update</md-icon>
-              Just Updated
+              Cập nhật theo ngày
             </div>
           </template>
         </stats-card>
@@ -168,13 +168,13 @@
       >
         <md-card>
           <md-card-header data-background-color="purple">
-            <h4 class="title">Trình độ phát triển giáo dục</h4>
+            <h4 class="title">Tỉ lệ phần trăm tôn giáo</h4>
             <p class="category">
-              Bằng cấp và trình độ của cư dân trong khu vực
+              Phần trăm các tôn giáo trong khu vực
             </p>
           </md-card-header>
           <md-card-content>
-            <EducationTable table-header-color="purple"></EducationTable>
+            <ReligionTable table-header-color="purple"></ReligionTable>
           </md-card-content>
         </md-card>
       </div>
@@ -183,11 +183,11 @@
       >
         <md-card>
           <md-card-header data-background-color="purple">
-            <h4 class="title">Tỉ lệ phần trăm tôn giáo</h4>
-            <p class="category">Phần trăm các tôn giáo trong khu vực</p>
+            <h4 class="title">Trình độ phát triển giáo dục</h4>
+            <p class="category">Bằng cấp và trình độ của cư dân trong khu vực</p>
           </md-card-header>
           <md-card-content>
-            <ReligionTable table-header-color="purple"></ReligionTable>
+            <EducationTable table-header-color="purple"></EducationTable>
           </md-card-content>
         </md-card>
       </div>
@@ -209,14 +209,16 @@
 
 <script>
 import AuthService from "@/services/AuthService.js";
+import axios from 'axios';
+import { mapGetters } from "vuex";
 import {
   StatsCard,
   ReligionTable,
   EducationTable,
   AgeChartCard,
 } from "@/components";
-
 export default {
+  // props:[edudata], 
   components: {
     StatsCard,
     ReligionTable,
@@ -234,15 +236,46 @@ export default {
         { title: "Thank You Jeeves" },
         { title: "Thank You Jees" },
       ],
-      area: "",
+        users: [
+        {
+          id: 1,
+          name: "du",
+          salary: "576",
+          country: "Niger",
+          city: "Oud-Turnhout",
+        },
+        {
+          id: 1,
+          name: "Dakotdqwdqice",
+          salary: "34576",
+          country: "Niger",
+          city: "Oud-Turnhout",
+        },
+        ],
+      maleonfemale:"",
+      population:"",
+      outofjob:"",
+      illiteracy:"",//mù chữ
+      educationalData:[],
     };
   },
+  computed: mapGetters(["getidarea"]), // get from store
   //check if user is logged in
+  // EducationTable(educationalData)
   async created() {
     if (!this.$store.getters.isLoggedIn) {
       this.$router.push("/");
     }
-    this.area = this.$store.getters.getarea.area;
+        this.area = this.$store.getters.getarea.area;
+    axios.get(`http://localhost:3000/api/address/city/statistics?idCityRef=${this.getidarea}`).then(res => {
+      this.maleonfemale = ((res.data.populationData[3].count/res.data.populationData[4].count)*100).toFixed(0);
+      this.population = res.data.populationData[3].count+res.data.populationData[4].count;
+      this.outofjob= ((res.data.employmentAndUnemploymentData[0].count/this.population)*100).toFixed(0);
+      this.illiteracy = (res.data.educationalData[0].count/ this.population).toFixed(0);
+      this.educationalData=JSON.stringify(res.data.educationalData, null, 2);
+      // console.log(this.educationalData);
+
+    });
   },
   methods: {
     logout() {

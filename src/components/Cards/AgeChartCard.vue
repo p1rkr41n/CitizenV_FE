@@ -2,17 +2,23 @@
   <div>
     <apexchart
       type="bar"
+      ref="realtimeChart"
       :options="chartOptions"
       :series="series"
-        :height="440"
+      :height="440"
     ></apexchart>
   </div>
 </template>
 <script>
+import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   name: "age-chart-card",
+  computed: mapGetters(["getidarea"]), // get from store
   data: function () {
     return {
+      ageData: [],
+      maleAgeData: [],
       chartOptions: {
         chart: {
           type: "bar",
@@ -45,7 +51,7 @@ export default {
           min: -5,
           max: 5,
           title: {
-            text: 'Tuổi',
+            text: "Tuổi",
           },
         },
         tooltip: {
@@ -77,11 +83,11 @@ export default {
             "0-9",
           ],
           title: {
-            text: "Phần trăm",
+            text: "Người",
           },
           labels: {
             formatter: function (val) {
-              return Math.abs(Math.round(val)) + "%";
+              return Math.abs(Math.round(val)) + "";
             },
           },
         },
@@ -89,20 +95,42 @@ export default {
       series: [
         {
           name: "Nam",
-          data: [
-            0.4, 0.88, 2.9, 3.8, 3.9, 4.2, 4.1,
-            4.2, 4.5,
-          ],
+          data: [],
         },
         {
           name: "Nữ",
-          data: [
-            -0.8, -1.18, -3.96, -4.22,
-            -4.3, -4.4, -4.1, -4,  -2.8,
-          ],
+          data: [],
         },
       ],
     };
+  },
+  async created() {
+    axios
+      .get(
+        `http://localhost:3000/api/address/city/statistics?idCityRef=${this.getidarea}`
+      )
+      .then((res) => {
+        (this.ageData = res.data.RangeAgeAndGenderData), null, 2;
+        for (let i = 0; i < this.ageData.length; i++) {
+          if (i <= 8) {
+            this.series[0].data.push(this.ageData[i].count);
+          }
+          if (i > 8) {
+            this.series[1].data.push(0 - this.ageData[i].count);
+          }
+        }
+        console.log(this.series[0].data);
+        this.$refs.realtimeChart.updateSeries([
+          {
+            name: "Nam",
+            data: this.series[0].data,
+          },
+          {
+            name: "Nữ",
+            data: this.series[1].data,
+          },
+        ]);
+      });
   },
 };
 </script>

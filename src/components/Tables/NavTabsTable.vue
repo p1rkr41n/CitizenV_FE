@@ -17,14 +17,6 @@
             md-layout-item md-medium-size-50 md-xsmall-size-50 md-size-75
           "
         >
-          <!-- <md-button class="md-just-icon md-simple md-primary">
-            <md-icon>edit</md-icon>
-            <md-tooltip md-direction="top">Edit</md-tooltip>
-          </md-button>
-          <md-button class="md-just-icon md-simple md-danger">
-            <md-icon>dehaze</md-icon>
-            <md-tooltip md-direction="top">View more</md-tooltip>
-          </md-button> -->
           {{ item.name }}
         </md-table-cell>
       </md-table-row>
