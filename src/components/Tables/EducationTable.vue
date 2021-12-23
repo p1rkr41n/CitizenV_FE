@@ -32,6 +32,14 @@ export default {
           country: "Niger",
           city: "Oud-Turnhout",
         },
+        {
+          id: 1,
+          name: "Dakotdqwdqice",
+          salary: "34576",
+          country: "Niger",
+          city: "Oud-Turnhout",
+        },
+      
       
         
       ],

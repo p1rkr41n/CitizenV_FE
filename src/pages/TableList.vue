@@ -17,34 +17,38 @@
 
       <div class="md-layout-item md-size-100 text-right">
         <md-button class="md-raised md-success">Cấp tài khoản</md-button>
+        <md-button class="md-raised md-success">Cấp tài khoản</md-button>
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
           <md-card-header data-background-color="green">
-            <h4 class="title">Table on Plain Background</h4>
-            <p class="category">Here is a subtitle for this table</p>
+            <h4 class="title">Xem tài khoản đã cấp</h4>
+            <p class="category">Xem bên dưới</p>
           </md-card-header>
           <md-card-content>
-            <ReligionTable></ReligionTable>
+            <AccountSeen></AccountSeen>
           </md-card-content>
         </md-card>
       </div>
+
+      
     </div>
     <div class="md-layout-item md-size-100 text-right">
-      <md-button class="md-raised md-success">Save gi do</md-button>
+      <!-- <md-button class="md-raised md-success">Save gi do</md-button> -->
     </div>
   </div>
 </template>
 
 <script>
-import { SimpleTable, ReligionTable } from "@/components";
+import { SimpleTable } from "@/components";
+import AccountSeen from '../components/Tables/AccountSeen.vue';
 
 export default {
   components: {
-    ReligionTable,
     SimpleTable,
+    AccountSeen,
   },
   data() {
     return {

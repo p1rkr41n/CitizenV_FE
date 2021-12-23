@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "legion-table",
+  name: "account",
   props: {
     tableHeaderColor: {
       type: String,
@@ -25,20 +25,7 @@ export default {
     return {
       selected: [],
       users: [
-        {
-          id: 1,
-          name: "Không",
-          salary: "34576",
-          country: "Niger",
-          city: "Oud-Turnhout",
-        },
-        {
-          id: 1,
-          name: "Không",
-          salary: "34576",
-          country: "Niger",
-          city: "Oud-Turnhout",
-        },
+       
         {
           id: 2,
           name: "Minerva Hooper",
