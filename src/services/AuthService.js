@@ -6,7 +6,6 @@ export default {
     return axios
       .post(url + "auth/", credentials)
       .then((response) => response.data);
-      
   },
   // signUp(credentials) {
   //   return axios
