@@ -13,6 +13,77 @@
               <h5 style="opacity: 0.85" class="title">
                 Nhập thông tin bên dưới đề tìm kiếm một người bất kỳ:
               </h5>
+              <div
+                class="
+                  md-layout-item
+                  md-medium-size-100
+                  md-xsmall-size-100
+                  md-size-100
+                "
+                data-background-color="green"
+              >
+                <p>Địa chỉ:</p>
+                <v-select
+                  :options="city"
+                  label="name"
+                  placeholder="Tỉnh/thành phố"
+                  v-model="selectedCity.name"
+                  @input ="getDistrict"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-20
+                  "
+                ></v-select>
+
+                <v-select
+                  :options="district"
+                  label="name"
+                  placeholder="Huyện/quận"
+                  v-model="selectedDistrict.name"
+                  @input ="getCommune"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-20
+                  "
+                ></v-select>
+
+                <v-select
+                  :options="commune"
+                  label="name"
+                  placeholder="Xã/phường/thị trấn"
+                  v-model="selectedCommune.name"
+                  @input ="getVillage"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-20
+                  "
+                ></v-select>
+
+                <v-select
+                  :options="village"
+                  label="name"
+                  placeholder="Thôn/xóm/địa phương"
+                  v-model="selectedVillage.name"
+                  class="
+                    md-dropdown-vselector
+                    md-layout-item
+                    md-medium-size-100
+                    md-xsmall-size-100
+                    md-size-20
+                  "
+                ></v-select>
+                <!--  -->
+              </div>
+              <!--  -->
               <!--  -->
               <div class="md-layout-item md-small-size-100 md-size-100">
                 <md-field>
@@ -25,77 +96,6 @@
                   ></md-input>
                 </md-field>
               </div>
-              <div
-                class="
-                  md-layout-item
-                  md-medium-size-100
-                  md-xsmall-size-100
-                  md-size-100
-                "
-                data-background-color="green"
-              >
-                <p>Địa chỉ: </p>
-                <v-select
-                  :options="city"
-                  label="title"
-                  placeholder="Tỉnh/thành phố"
-                  class="
-                    md-dropdown-vselector
-                    md-layout-item
-                    md-medium-size-100
-                    md-xsmall-size-100
-                    md-size-20
-                  "
-                ></v-select>
-
-                <v-select
-                  :options="city"
-                  label="title"
-                  placeholder="Huyện/quận"
-                  class="
-                    md-dropdown-vselector
-                    md-layout-item
-                    md-medium-size-100
-                    md-xsmall-size-100
-                    md-size-20
-                  "
-                ></v-select>
-
-                <v-select
-                  :options="city"
-                  label="title"
-                  placeholder="Xã/phường/thị trấn"
-                  class="
-                    md-dropdown-vselector
-                    md-layout-item
-                    md-medium-size-100
-                    md-xsmall-size-100
-                    md-size-20
-                  "
-                ></v-select>
-
-                <v-select
-                  :options="city"
-                  label="title"
-                  placeholder="Thôn/xóm/địa phương"
-                  class="
-                    md-dropdown-vselector
-                    md-layout-item
-                    md-medium-size-100
-                    md-xsmall-size-100
-                    md-size-20
-                  "
-                ></v-select>
-                <!--  -->
-              </div>
-              <div
-                class="
-                  md-layout-item
-                  md-medium-size-100
-                  md-xsmall-size-100
-                  md-size-100
-                "
-              ></div>
               <!--  -->
               <div
                 class="md-layout-item md-size-100 text-right"
@@ -111,6 +111,7 @@
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
+        style="z-index: 0"
       >
         <nav-tabs-card>
           <template slot="content">
@@ -140,10 +141,10 @@
 </template>
 
 <script>
-import {
-  NavTabsCard,
-  NavTabsTable,
-} from "@/components";
+import axios from "axios";
+import { mapGetters } from "vuex";
+
+import { NavTabsCard, NavTabsTable } from "@/components";
 
 export default {
   components: {
@@ -152,30 +153,81 @@ export default {
   },
   data() {
     return {
-      city: [
-        { title: "Old Man's War" },
-        { title: "The Lock Artist" },
-        { title: "HTML5" },
-        { title: "Right Ho Jeeves" },
-        { title: "The Code of the Wooster" },
-        { title: "Thank You Jeeves" },
-        { title: "Thank You Jees" },
-      ],
+      cname: "",
+      city: [],
+      district: [],
+      commune: [],
+      village: [],
       area: "",
+      event: "",
+      selectedCity: {},
+      selectedDistrict: {},
+      selectedCommune: {},
+      selectedVillage: {},
     };
   },
+  computed: mapGetters(["getidarea"]), // get from store
   //check if user is logged in
   async created() {
     if (!this.$store.getters.isLoggedIn) {
       this.$router.push("/");
     }
     this.area = this.$store.getters.getarea.area;
+    axios.get(`http://localhost:3000/api/address/city`).then((res) => {
+      (this.city = res.data), null, 2;
+      this.sortedArray = this.city.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    });
   },
   methods: {
     logout() {
       this.$store.dispatch("logout");
       this.$router.push("/");
     },
+    sortedArray() {}, // sort
+    getDistrict() {
+      console.log(this.selectedCity.name._id);
+      axios
+        .get(
+          `http://localhost:3000/api/address/district?idCityRef=${this.selectedCity.name._id}`
+        )
+        .then((res) => {
+          (this.district = res.data), null, 2;
+          this.sortedArray = this.district.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+          console.log(this.district);
+        });
+    },
+    
+      getCommune() {
+      console.log(this.selectedDistrict.name);
+      axios
+        .get(
+          `http://localhost:3000/api/address/commune?idDistrictRef=${this.selectedDistrict.name._id}`
+        )
+        .then((res) => {
+          (this.commune = res.data), null, 2;
+          this.sortedArray = this.commune.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        });
+    },
+    getVillage() {
+      console.log(this.selectedCommune.name);
+      axios
+        .get(
+          `http://localhost:3000/api/address/village?idCommuneRef=${this.selectedCommune.name._id}`
+        )
+        .then((res) => {
+          (this.village = res.data), null, 2;
+          this.sortedArray = this.village.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        });
+    },
+    //get data from api
   },
 };
 </script>

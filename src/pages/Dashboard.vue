@@ -259,7 +259,7 @@ export default {
       educationalData:[],
     };
   },
-  computed: mapGetters(["getidarea"]), // get from store
+  computed: mapGetters(["getidarea"]), // get from store 
   //check if user is logged in
   // EducationTable(educationalData)
   async created() {
@@ -272,7 +272,7 @@ export default {
       this.population = res.data.populationData[0].count+res.data.populationData[1].count;
       this.outofjob= ((res.data.employmentAndUnemploymentData[0].count/this.population)*100).toFixed(0);
       this.illiteracy = (res.data.educationalData[0].count/ this.population).toFixed(0);
-      this.educationalData=JSON.stringify(res.data.educationalData, null, 2);
+      // this.educationalData=JSON.stringify(res.data.educationalData, null, 2);
       // console.log(this.educationalData);
 
     });

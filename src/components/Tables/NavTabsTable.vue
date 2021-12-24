@@ -47,8 +47,8 @@ export default {
   },
   methods: {
     getClass: ({ name }) => ({
-      "md-primary": name === 2,
-      "md-accent": name === 3,
+      // "md-primary": name === 2,
+      // "md-accent": name === 3,
     }),
     onSelect: function (items) {
       this.selected = items;
