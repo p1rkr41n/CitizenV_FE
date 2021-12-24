@@ -63,7 +63,7 @@ export default {
           },
           y: {
             formatter: function (val) {
-              return Math.abs(val) + "%";
+              return Math.abs(val) + " Người";
             },
           },
         },
@@ -107,7 +107,7 @@ export default {
   async created() {
     axios
       .get(
-        `http://localhost:3000/api/address/city/statistics?idCityRef=${this.getidarea}`
+        `http://localhost:3000/api/address/statistics`
       )
       .then((res) => {
         (this.ageData = res.data.RangeAgeAndGenderData), null, 2;
@@ -115,7 +115,7 @@ export default {
           if (i <= 8) {
             this.series[0].data.push(this.ageData[i].count);
           }
-          if (i > 8) {
+          if (i > 8 && i <= 16) {
             this.series[1].data.push(0 - this.ageData[i].count);
           }
         }

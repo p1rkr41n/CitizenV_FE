@@ -71,7 +71,7 @@ export default {
   async created() {
     axios
       .get(
-        `http://localhost:3000/api/address/city/statistics?idCityRef=${this.getidarea}`
+        `http://localhost:3000/api/address/statistics`
       )
       .then((res) => {
         (this.ReligionData = res.data.ReligionData), null, 2;

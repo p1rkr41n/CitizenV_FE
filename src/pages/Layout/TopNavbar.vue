@@ -43,7 +43,7 @@
                     </md-button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
-                        <a href="#/app/typography" style="text-overflow: ellipsis ellipsis;" >ID: {{ getname }}</a>
+                        <a href="#/app/typography" style="text-overflow: ellipsis ellipsis;" >ID: {{ getareaCode }}</a>
                       </li>
                       <li>
                         <a value="Logout" @click="logout" href="#">Logout</a>
@@ -80,7 +80,7 @@ export default {
     };
   },
 
-  computed: mapGetters(["getarea", "getname"]), // get from store
+  computed: mapGetters(["getarea", "getareaCode"]), // get from store
   methods: {
     toggleSidebar() {
       this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);

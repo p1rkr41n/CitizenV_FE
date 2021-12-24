@@ -50,5 +50,5 @@ new Vue({
   data: {
     Chartist: Chartist,
   },
-  computed: mapGetters(["isLoggedIn", "getarea", "getidarea", "getname"]), // getters from store
+  computed: mapGetters(["isLoggedIn", "getarea", "getidarea", "getareaCode"]), // getters from store
 });

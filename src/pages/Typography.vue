@@ -16,7 +16,7 @@
               <div class="md-layout-item md-medium-size-100">
                 <h5>Xin chào,</h5>
                 <div>
-                  <p>ID của bạn: {{ getname }}</p>
+                  <p>ID của bạn: {{ getareaCode }}</p>
                   <p>Đây là tài khoản thuốc quyền quản lý của {{ getarea }}</p>
                   <p>
                     <a
@@ -50,7 +50,7 @@ export default {
   data() {
     return {};
   },
-  computed: mapGetters(["getarea", "getname"]), // get from store
+  computed: mapGetters(["getarea", "getareaCode"]), // get from store
   //check if user is logged in
   async created() {
     if (!this.$store.getters.isLoggedIn) {

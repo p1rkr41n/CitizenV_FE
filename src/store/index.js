@@ -9,9 +9,9 @@ Vue.use(Vuex);
 const getDefaultState = () => {
   return {
     token: "",
-    name: "",
     area: "",
     idArea: "",
+    areaCode: "",
     // id: "",
   };
 };
@@ -30,16 +30,13 @@ export default new Vuex.Store({
     getidarea: (state) => {
       return state.idArea;
     },
-    getname: (state) => {
-      return state.name;
+    getareaCode: (state) => {
+      return state.areaCode;
     },
   },
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token;
-    },
-    SET_name: (state, name) => {
-      state.name = name;
     },
     SET_area: (state, area) => {
       state.area = area;
@@ -47,16 +44,19 @@ export default new Vuex.Store({
     SET_idArea: (state, idArea) => {
       state.idArea = idArea;
     },
+    SET_areaCode: (state, areaCode) => {
+      state.areaCode = areaCode;
+    },
     RESET: (state) => {
       Object.assign(state, getDefaultState());
     },
   },
   actions: {
-    login: ({ commit, dispatch }, { token, name, area, idArea }) => {
+    login: ({ commit, dispatch }, { token, area, idArea, areaCode }) => {
       commit("SET_TOKEN", token);
-      commit("SET_name", name);
       commit("SET_area", area);
       commit("SET_idArea", idArea);
+      commit("SET_areaCode", areaCode);
       // set token link with main.js
       Axios.defaults.headers.common["token"] = `${token}`;
     },

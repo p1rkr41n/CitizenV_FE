@@ -164,13 +164,13 @@
         </stats-card>
       </div>
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-=50"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
       >
         <md-card>
           <md-card-header data-background-color="purple">
-            <h4 class="title">Tỉ lệ phần trăm tôn giáo</h4>
+            <h4 class="title">Các tôn giáo</h4>
             <p class="category">
-              Phần trăm các tôn giáo trong khu vực
+            Số dân theo các tôn giáo trong khu vực
             </p>
           </md-card-header>
           <md-card-content>
@@ -179,7 +179,7 @@
         </md-card>
       </div>
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
       >
         <md-card>
           <md-card-header data-background-color="purple">
@@ -192,7 +192,7 @@
         </md-card>
       </div>
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
       >
         <md-card>
           <md-card-header data-background-color="purple">
@@ -267,9 +267,9 @@ export default {
       this.$router.push("/");
     }
         this.area = this.$store.getters.getarea.area;
-    axios.get(`http://localhost:3000/api/address/city/statistics?idCityRef=${this.getidarea}`).then(res => {
-      this.maleonfemale = ((res.data.populationData[3].count/res.data.populationData[4].count)*100).toFixed(0);
-      this.population = res.data.populationData[3].count+res.data.populationData[4].count;
+    axios.get(`http://localhost:3000/api/address/statistics`).then(res => {
+      this.maleonfemale = ((res.data.populationData[0].count/res.data.populationData[1].count)*100).toFixed(0);
+      this.population = res.data.populationData[0].count+res.data.populationData[1].count;
       this.outofjob= ((res.data.employmentAndUnemploymentData[0].count/this.population)*100).toFixed(0);
       this.illiteracy = (res.data.educationalData[0].count/ this.population).toFixed(0);
       this.educationalData=JSON.stringify(res.data.educationalData, null, 2);

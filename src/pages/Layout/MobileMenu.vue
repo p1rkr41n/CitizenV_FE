@@ -10,7 +10,7 @@
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <a href="#/app/typography" style="text-overflow: ellipsis ellipsis"
-              >ID: {{ getname }}</a
+              >ID: {{ getareaCode }}</a
             >
           </li>
           <li>
@@ -40,6 +40,6 @@ export default {
       ],
     };
   },
-  computed: mapGetters(["getarea", "getname"]), // get from store
+  computed: mapGetters(["getarea", "getareaCode"]), // get from store
 };
 </script>

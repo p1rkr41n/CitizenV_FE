@@ -74,12 +74,12 @@ export default {
         const response = await AuthService.login(credentials);
         // this.msg = response.msg;
         const token = response.token;
-        const name = response.name;
+        const areaCode = response.areaCode;
         const area = response.area;
         const idArea = response.idArea;
         const id = this.username;
         // console.log(token, name, area, idArea);
-        this.$store.dispatch("login", { token, name, area, idArea, id });
+        this.$store.dispatch("login", { token, areaCode, area, idArea, id });
         this.$router.push("/app/dashboard/");
       } catch (error) {
         this.msg = "Nhập sai tài khoản hoặc mật khẩu!";
