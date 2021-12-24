@@ -62,7 +62,15 @@
             type="submit"
             class="md-raised md-success"
             :disabled="sending"
+            @click="submithogiadinh"
             >Tạo</md-button
+          >
+          <md-button
+            type="submit"
+            class="md-raised md-success"
+            :disabled="sending"
+            @click="replacehogiadinh"
+            >Thay doi</md-button
           >
         </md-card-actions>
       </md-card>
@@ -217,7 +225,12 @@
               </div>
             </div>
             <div class="md-layout-item md-size-100 text-right">
-              <md-button class="md-raised md-success">Save Profile</md-button>
+              <md-button class="md-raised md-success" @click="submitcanhan"
+                >Save Profile</md-button
+              >
+              <md-button class="md-raised md-success" @click="replacecanhan"
+                >Thay doi Profile</md-button
+              >
             </div>
           </div>
         </md-card-content>
@@ -274,7 +287,7 @@ export default {
     };
   },
 
-    async created() {
+  async created() {
     this.area = this.$store.getters.getarea.area;
     axios.get(`http://localhost:3000/api/address/city`).then((res) => {
       (this.city = res.data), null, 2;
@@ -331,6 +344,63 @@ export default {
             return a.name.localeCompare(b.name);
           });
         });
+    },
+    submithogiadinh() {
+      axios
+        .post(`http://localhost:3000/api/family`, {
+          headOfHouseholdName: "Tran Van B",
+          idCardOfHeadOfHousehold: "125852548",
+          idAddressRef: "61ba30987c66d98010a92763",
+          householdCode: "00121304205",
+        })
+        .then((response) => (this.responseData = response.data));
+    },
+    replacehogiadinh() {
+      axios
+        .put(`http://localhost:3000/api/family?idFamily=`, {
+          family: {
+            cardIdOfHost: "123456789541579",
+            householdCode: "1252367891578",
+            headOfHouseholdName: "nguyen van d",
+          },
+        })
+        .then((response) => (this.responseData = response.data));
+    },
+    submitcanhan() {
+      axios
+        .post(`http://localhost:3000/api/human?idFamily=)`, {
+          human: {
+            name: "Hoang Van D",
+            cardId: "1234567895215",
+            job: "giao vien",
+            religion: "Phat giao",
+            idPermanentAddressRef: "61ba30987c66d98010a92765",
+            hometown: "abcder",
+            gender: "male",
+            birth: "2021-12-11T13:40:32.422Z",
+            educationalLevel: "Dai Hoc",
+          },
+        })
+        .then((response) => (this.responseData = response.data));
+    },
+    replacecanhan() {
+      axios
+        .put(`http://localhost:3000/api/family/edit-member/:id?idFamily=`, {
+          human: {
+            name: "Nguyen Van C",
+            cardId: "1234567895410",
+            job: "Giao vien",
+            religion: "Thiên chúa giáo",
+
+            idPermanentAddressRef: "61bc3c9cbfd8f603a4f8eb2d",
+
+            hometown: "abc",
+            gender: "female",
+            birth: "2021-12-11T13:40:32.422Z",
+            educationalLevel: "Dai hoc",
+          },
+        })
+        .then((response) => (this.responseData = response.data));
     },
   },
 };

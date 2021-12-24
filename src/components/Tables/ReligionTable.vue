@@ -30,20 +30,16 @@ export default {
     };
   },
   async created() {
-    axios
-      .get(
-        `http://localhost:3000/api/address/statistics`
-      )
-      .then((res) => {
-        (this.ReligionData = res.data.ReligionData), null, 2;
-        this.ReligionData = this.ReligionData.map((item, index) => {
-          return {
-            stt: index + 1,
-            religion: item.religion,
-            count: item.count,
-          };
-        });
+    axios.get(`http://localhost:3000/api/address/statistics`).then((res) => {
+      (this.ReligionData = res.data.ReligionData), null, 2;
+      this.ReligionData = this.ReligionData.map((item, index) => {
+        return {
+          stt: index + 1,
+          religion: item.religion,
+          count: item.count,
+        };
       });
+    });
   },
 };
 </script>

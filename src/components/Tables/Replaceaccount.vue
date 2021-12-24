@@ -12,6 +12,9 @@
         }}</md-table-cell>
       </md-table-row>
     </md-table>
+    <md-button class="md-raised md-success" @click="suataikhoan"
+      >Sửa tài khoản</md-button
+    >
   </div>
 </template>
 
@@ -35,11 +38,19 @@ export default {
       managedArea: "",
     };
   },
-  
+
   async created() {
     axios.get(`http://localhost:3000/api/user/all`).then((response) => {
       (this.account = response.data), null, 2;
     });
+  },
+
+  methods: {
+    suataikhoan() {
+      axios.put(`http://localhost:3000/api/change-declare-permission?id=
+`),
+        { declarable: true / false, areaName: "" };
+    },
   },
 };
 </script>

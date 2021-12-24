@@ -15,12 +15,17 @@
           <md-card-content>
             <AccountSeen></AccountSeen>
           </md-card-content>
+         
         </md-card>
       </div>
 
-      <div class="md-layout-item md-size-100 text-right">
-        <md-button class="md-raised md-success">Sửa tài khoản</md-button>
-        <md-button class="md-raised md-success">Cấp tài khoản</md-button>
+     <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
+      >
+        <md-card-content>
+            <Replaceaccount></Replaceaccount>
+          </md-card-content>
+     
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
@@ -30,13 +35,16 @@
 </template>
 
 <script>
-// import { SimpleTable } from "@/components"; 
+// import { SimpleTable } from "@/components";
 import AccountSeen from "../components/Tables/AccountSeen.vue";
 import Account from "../components/Tables/Account.vue";
+import Replaceaccount from "../components/Tables/Replaceaccount.vue";
+
 export default {
   components: {
     AccountSeen,
     Account,
+    Replaceaccount,
   },
   data() {
     return {
