@@ -1,7 +1,9 @@
 <template>
   <div class="content">
     <div class="md-layout">
-      <div class="md-layout-item">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
+      >
         <div
           class="
             md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100
@@ -99,6 +101,7 @@
               <div
                 class="md-layout-item md-size-100 text-right"
                 style="padding-top: 10px"
+                @click="updateData"
               >
                 <md-button class="md-raised md-primary md-round">
                   Tìm kiếm<md-icon>arrow_downward</md-icon></md-button
@@ -109,31 +112,47 @@
         </div>
       </div>
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
-        style="z-index: 0"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
       >
-        <nav-tabs-card>
-          <template slot="content">
-            <span class="md-nav-tabs-title">MENU:</span>
-            <md-tabs class="md-success" md-alignment="left">
-              <md-tab
-                id="tab-home"
-                md-label="Danh sách"
-                md-icon="manage_search"
-              >
-                <nav-tabs-table></nav-tabs-table>
-              </md-tab>
-
-              <md-tab
-                id="tab-pages"
-                md-label="Cá nhân"
-                md-icon="account_circle"
-              >
-                <nav-tabs-table></nav-tabs-table>
-              </md-tab>
-            </md-tabs>
-          </template>
-        </nav-tabs-card>
+        <md-card>
+          <md-card-header data-background-color="green">
+            <h4 class="title">Danh sách tìm kiếm</h4>
+            <!-- <p class="category">Số dân được liệt kê và sắp xếp theo tên</p> -->
+          </md-card-header>
+          <md-card-content>
+            <!-- / -->
+            <!-- v-show="show[0].state" -->
+            <md-table v-model="info" :table-header-color="tableHeaderColor">
+              <!-- @click.native="Render1(1, item.areaCode, item.name)" -->
+              <md-table-row slot="md-table-row" slot-scope="{ item }">
+                <md-table-cell md-label="STT">{{ item.stt }}</md-table-cell>
+                <md-table-cell md-label="Địa phương">{{
+                  item.name
+                }}</md-table-cell>
+                <!-- <md-table-cell md-label="scopeName">{{ item.areaCode }}</md-table-cell> -->
+                <!-- <md-table-cell md-label="Số dân">{{
+                  item.populationData
+                }}</md-table-cell>
+                <md-table-cell md-label="Nam">{{ item.male }}</md-table-cell>
+                <md-table-cell md-label="Nữ">{{ item.female }}</md-table-cell> -->
+              </md-table-row>
+            </md-table>
+            <!-- / -->
+          </md-card-content>
+        </md-card>
+      </div>
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
+        <md-card>
+          <md-card-header data-background-color="green">
+            <h4 class="title">Thông tin chi tiết</h4>
+            <!-- <p class="category">Số dân được liệt kê và sắp xếp theo tên</p> -->
+          </md-card-header>
+          <md-card-content>
+            <simple-table table-header-color="green"></simple-table>
+          </md-card-content>
+        </md-card>
       </div>
     </div>
   </div>
@@ -144,11 +163,18 @@ import axios from "axios";
 import { mapGetters } from "vuex";
 
 import { NavTabsCard, NavTabsTable } from "@/components";
+import ReligionTableVue from "../components/Tables/ReligionTable.vue";
 
 export default {
-  components: {
-    NavTabsCard,
-    NavTabsTable,
+  // components: {
+  //   NavTabsCard,
+  //   NavTabsTable,
+  // },
+  props: {
+    tableHeaderColor: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -163,6 +189,9 @@ export default {
       selectedDistrict: {},
       selectedCommune: {},
       selectedVillage: {},
+      idFinder: "",
+      tracker: "/human/search",
+      info: [],
     };
   },
   computed: mapGetters(["getidarea"]), // get from store
@@ -184,13 +213,16 @@ export default {
       this.$store.dispatch("logout");
       this.$router.push("/");
     },
-    sortedArray() {}, // sort 
+    sortedArray() {}, // sort
     //get data from api
     getDistrict() {
       console.log(this.selectedCity.name._id);
       this.selectedDistrict = {};
       this.selectedCommune = {};
       this.selectedVillage = {};
+      this.idFinder = this.selectedCity.name._id;
+      this.tracker = `/human/search?page=1&idCityRef=${this.idFinder}`;
+
       axios
         .get(
           `http://localhost:3000/api/address/district?idCityRef=${this.selectedCity.name._id}`
@@ -208,6 +240,8 @@ export default {
       console.log(this.selectedDistrict.name);
       this.selectedCommune = {};
       this.selectedVillage = {};
+      this.idFinder = this.selectedDistrict.name._id;
+      this.tracker = `/human/search?page=1&idDistrictRef=${this.idFinder}`;
       axios
         .get(
           `http://localhost:3000/api/address/commune?idDistrictRef=${this.selectedDistrict.name._id}`
@@ -222,6 +256,8 @@ export default {
     getVillage() {
       console.log(this.selectedCommune.name);
       this.selectedVillage = {};
+      this.idFinder = this.selectedCommune.name._id;
+      this.tracker = `/human/search?page=1&idCommuneRef=${this.idFinder}`;
       axios
         .get(
           `http://localhost:3000/api/address/village?idCommuneRef=${this.selectedCommune.name._id}`
@@ -229,11 +265,41 @@ export default {
         .then((res) => {
           (this.village = res.data), null, 2;
           this.sortedArray = this.village.sort((a, b) => {
-            return a.name.localeCompare(b.name); 
+            return a.name.localeCompare(b.name);
           });
         });
     },
-  },  
+    getVillageData() {
+      console.log(this.selectedVillage.name);
+      this.idFinder = this.selectedVillage.name._id;
+      this.tracker = `/human/search?page=1&idVillageRef=${this.idFinder}`;
+    },
+    //update response data staistic
+    updateData() {
+      console.log(this.tracker);
+      console.log(this.cname);
+      axios
+        .get(`http://localhost:3000/api${this.tracker}&name=${this.cname}`)
+        .then((res) => {
+          (this.info = res.data), null, 2;
+          console.log(this.info);
+          this.info = this.info.map((item, index) => {
+            stt: index + 1;
+            name: item.name;
+            gender: item.gender;
+            cardID: item.cardID;
+            birth: item.birth;
+            job: item.job;
+            religion: item.religion;
+            hometown: item.hometown;
+            educationalLevel: item.educationalLevel;
+            permanentAddress: item.permanentAddress;
+            idTemporaryResidenceAddressRef: item.idTemporaryResidenceAddressRef;
+          });
+        });
+        
+    },
+  },
 };
 </script>
 <style scoped>

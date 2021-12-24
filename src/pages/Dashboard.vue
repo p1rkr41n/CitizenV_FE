@@ -82,7 +82,7 @@
                   class="md-raised md-success md-round"
                   @click="updateData"
                 >
-                  >Tìm kiếm</md-button
+                  Tìm kiếm</md-button
                 >
               </div>
             </div>
@@ -370,9 +370,9 @@ export default {
       this.idFinder = this.selectedVillage.name._id;
       this.tracker = `/village/statistics?idVillageRef=${this.idFinder}`;
     },
-    getData() {
-      this.area = this.idFinder;
-    },
+    // getData() {
+    //   this.area = this.idFinder;
+    // },
     //update response data staistic  
     updateData() {
       console.log(this.tracker);
