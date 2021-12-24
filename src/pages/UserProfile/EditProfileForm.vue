@@ -16,7 +16,8 @@
           >
             <v-select
               :options="city"
-              label="title"
+              label="name"
+              v-model="selectedCity.name"
               placeholder="Thôn/xóm/địa phương"
               class="
                 md-dropdown-vselector
@@ -225,6 +226,9 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+import { mapGetters } from "vuex";
+
 export default {
   name: "edit-profile-form",
   props: {
@@ -235,7 +239,18 @@ export default {
   },
   data() {
     return {
-      city: [
+      city: [],
+      district: [],
+      commune: [],
+      village: [],
+      area: "",
+      event: "",
+      selectedCity: {},
+      selectedDistrict: {},
+      selectedCommune: {},
+      selectedVillage: {},
+
+      city2: [
         { title: "Old Man's War" },
         { title: "The Lock Artist" },
         { title: "HTML5" },
@@ -258,30 +273,66 @@ export default {
       birth: "01/01/2000",
     };
   },
-  methods: {},
 
-  //   methods:{
-  //     user(){
-  //       fetch("http://localhost:3000/login",{
-  //         method: "POST",
-  //         headers:{
-  //           "header":"app/json",
-  //         },
-  // body: JSON.stringify({ cc:this.cc,
-  //       cname: "abiqbidq",
-  //       birth: "01/09/2000",
-  //       gender: "nam",
-  //       hometown: "qwdqwdwq",
-  //       addresss:"qqefeq",
-  //       addressx: null,
-  //       religion:"Kinh",
-  //       edulevel:"9/12",
-  //       job:"sinh vien",
-  // })
+    async created() {
+    this.area = this.$store.getters.getarea.area;
+    axios.get(`http://localhost:3000/api/address/city`).then((res) => {
+      (this.city = res.data), null, 2;
+      this.sortedArray = this.city.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    });
+  },
+  methods: {
+    //get data from api
+    getDistrict() {
+      console.log(this.selectedCity.name._id);
+      this.selectedDistrict = {};
+      this.selectedCommune = {};
+      this.selectedVillage = {};
+      axios
+        .get(
+          `http://localhost:3000/api/address/district?idCityRef=${this.selectedCity.name._id}`
+        )
+        .then((res) => {
+          (this.district = res.data), null, 2;
+          this.sortedArray = this.district.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+          console.log(this.district);
+        });
+    },
 
-  //       })
-  //     }
-  //   }
+    getCommune() {
+      console.log(this.selectedDistrict.name);
+      this.selectedCommune = {};
+      this.selectedVillage = {};
+      axios
+        .get(
+          `http://localhost:3000/api/address/commune?idDistrictRef=${this.selectedDistrict.name._id}`
+        )
+        .then((res) => {
+          (this.commune = res.data), null, 2;
+          this.sortedArray = this.commune.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        });
+    },
+    getVillage() {
+      console.log(this.selectedCommune.name);
+      this.selectedVillage = {};
+      axios
+        .get(
+          `http://localhost:3000/api/address/village?idCommuneRef=${this.selectedCommune.name._id}`
+        )
+        .then((res) => {
+          (this.village = res.data), null, 2;
+          this.sortedArray = this.village.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        });
+    },
+  },
 };
 </script>
 <style>

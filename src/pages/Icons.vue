@@ -28,7 +28,7 @@
                   label="name"
                   placeholder="Tỉnh/thành phố"
                   v-model="selectedCity.name"
-                  @input ="getDistrict"
+                  @input="getDistrict"
                   class="
                     md-dropdown-vselector
                     md-layout-item
@@ -43,7 +43,7 @@
                   label="name"
                   placeholder="Huyện/quận"
                   v-model="selectedDistrict.name"
-                  @input ="getCommune"
+                  @input="getCommune"
                   class="
                     md-dropdown-vselector
                     md-layout-item
@@ -58,7 +58,7 @@
                   label="name"
                   placeholder="Xã/phường/thị trấn"
                   v-model="selectedCommune.name"
-                  @input ="getVillage"
+                  @input="getVillage"
                   class="
                     md-dropdown-vselector
                     md-layout-item
@@ -83,7 +83,6 @@
                 ></v-select>
                 <!--  -->
               </div>
-              <!--  -->
               <!--  -->
               <div class="md-layout-item md-small-size-100 md-size-100">
                 <md-field>
@@ -185,9 +184,13 @@ export default {
       this.$store.dispatch("logout");
       this.$router.push("/");
     },
-    sortedArray() {}, // sort
+    sortedArray() {}, // sort 
+    //get data from api
     getDistrict() {
       console.log(this.selectedCity.name._id);
+      this.selectedDistrict = {};
+      this.selectedCommune = {};
+      this.selectedVillage = {};
       axios
         .get(
           `http://localhost:3000/api/address/district?idCityRef=${this.selectedCity.name._id}`
@@ -200,9 +203,11 @@ export default {
           console.log(this.district);
         });
     },
-    
-      getCommune() {
+
+    getCommune() {
       console.log(this.selectedDistrict.name);
+      this.selectedCommune = {};
+      this.selectedVillage = {};
       axios
         .get(
           `http://localhost:3000/api/address/commune?idDistrictRef=${this.selectedDistrict.name._id}`
@@ -216,6 +221,7 @@ export default {
     },
     getVillage() {
       console.log(this.selectedCommune.name);
+      this.selectedVillage = {};
       axios
         .get(
           `http://localhost:3000/api/address/village?idCommuneRef=${this.selectedCommune.name._id}`
@@ -227,7 +233,6 @@ export default {
           });
         });
     },
-    //get data from api
   },
 };
 </script>

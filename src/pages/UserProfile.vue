@@ -32,6 +32,8 @@ export default {
       this.$store.dispatch("logout");
       this.$router.push("/");
     },
+    //get data from api
+
   },
 };
 </script>

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { SimpleTable } from "@/components";
+// import { SimpleTable } from "@/components"; 
 import AccountSeen from "../components/Tables/AccountSeen.vue";
 import Account from "../components/Tables/Account.vue";
 export default {
