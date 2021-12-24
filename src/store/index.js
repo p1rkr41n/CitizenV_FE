@@ -60,6 +60,7 @@ export default new Vuex.Store({
       // set token link with main.js
       Axios.defaults.headers.common["token"] = `${token}`;
     },
+    
     logout: ({ commit }) => {
       commit("RESET", "");
     },

@@ -15,4 +15,7 @@ export default {
   // getSecretContent() {
   //   return axios.get(url + "secret-route/").then((response) => response.data);
   // },
+  getdataAccount() {
+    return axios.get(url + "user/all").then((response) => response.data);
+  },
 };
