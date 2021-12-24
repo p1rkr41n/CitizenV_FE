@@ -55,7 +55,7 @@ export default {
       msg: "",
     };
   },
-  //check if user is logged in 
+  //check if user is logged in
   async created() {
     if (this.$store.getters.isLoggedIn) {
       this.$router.push("/app/dashboard");

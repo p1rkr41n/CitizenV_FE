@@ -20,7 +20,7 @@
 
       <div class="md-layout-item md-size-100 text-right">
         <md-button class="md-raised md-success">Sửa tài khoản</md-button>
-        <md-button class="md-raised md-success">Cấp tài khoản</md-button>
+
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
