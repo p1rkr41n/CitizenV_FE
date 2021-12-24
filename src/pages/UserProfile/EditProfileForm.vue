@@ -65,6 +65,13 @@
             @click="submithogiadinh"
             >Tạo</md-button
           >
+          <md-button
+            type="submit"
+            class="md-raised md-success"
+            :disabled="sending"
+            @click="replacehogiadinh"
+            >Thay doi</md-button
+          >
         </md-card-actions>
       </md-card>
     </form>
@@ -221,6 +228,9 @@
               <md-button class="md-raised md-success" @click="submitcanhan"
                 >Save Profile</md-button
               >
+              <md-button class="md-raised md-success" @click="replacecanhan"
+                >Thay doi Profile</md-button
+              >
             </div>
           </div>
         </md-card-content>
@@ -345,6 +355,17 @@ export default {
         })
         .then((response) => (this.responseData = response.data));
     },
+    replacehogiadinh() {
+      axios
+        .put(`http://localhost:3000/api/family?idFamily=`, {
+          family: {
+            cardIdOfHost: "123456789541579",
+            householdCode: "1252367891578",
+            headOfHouseholdName: "nguyen van d",
+          },
+        })
+        .then((response) => (this.responseData = response.data));
+    },
     submitcanhan() {
       axios
         .post(`http://localhost:3000/api/human?idFamily=)`, {
@@ -358,6 +379,25 @@ export default {
             gender: "male",
             birth: "2021-12-11T13:40:32.422Z",
             educationalLevel: "Dai Hoc",
+          },
+        })
+        .then((response) => (this.responseData = response.data));
+    },
+    replacecanhan() {
+      axios
+        .put(`http://localhost:3000/api/family/edit-member/:id?idFamily=`, {
+          human: {
+            name: "Nguyen Van C",
+            cardId: "1234567895410",
+            job: "Giao vien",
+            religion: "Thiên chúa giáo",
+
+            idPermanentAddressRef: "61bc3c9cbfd8f603a4f8eb2d",
+
+            hometown: "abc",
+            gender: "female",
+            birth: "2021-12-11T13:40:32.422Z",
+            educationalLevel: "Dai hoc",
           },
         })
         .then((response) => (this.responseData = response.data));
