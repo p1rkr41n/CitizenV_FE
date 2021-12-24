@@ -36,12 +36,9 @@ export default {
       // account[],
     };
   },
-  async accountcreated() {
+ async created() {
     axios.post(`http://localhost:3000/api/user`).then((response) => {
-      this.info = response.data.bpi;
-      this.info = response.data.bpi;
-      this.info = response.data.bpi;
-      this.info = response.data.bpi;
+      (this.account = response.data), null, 2;
     });
   },
 };
