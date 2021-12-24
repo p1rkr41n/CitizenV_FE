@@ -347,7 +347,7 @@ export default {
     },
     submitcanhan() {
       axios
-        .post(`http://localhost:3000/api/family`, {
+        .post(`http://localhost:3000/api/human?idFamily=)`, {
           human: {
             name: "Hoang Van D",
             cardId: "1234567895215",
