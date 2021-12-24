@@ -2,10 +2,13 @@
   <div>
     <md-table v-model="account" :table-header-color="tableHeaderColor">
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
-        <md-table-cell md-label="Username">{{ item.username }}</md-table-cell>
-        <md-table-cell md-label="ManagedArea">{{
-          item.managedArea
+        <md-table-cell md-label="ID">{{ item.username }}</md-table-cell>
+        <md-table-cell md-label="Khu vực">{{ item.managedArea }}</md-table-cell>
+        <md-table-cell md-label="Hoàn thành">{{
+          item.completede
+        }}</md-table-cell>
+        <md-table-cell md-label="declarable">{{
+          item.declarable
         }}</md-table-cell>
       </md-table-row>
     </md-table>
@@ -27,14 +30,14 @@ export default {
   data() {
     return {
       account: [],
+      username: "",
+      name: " ",
+      managedArea: "",
     };
   },
-  async accountcreated() {
+  async created() {
     axios.get(`http://localhost:3000/api/user/all`).then((response) => {
-      this.info = response.data.bpi;
-      this.info = response.data.bpi;
-      this.info = response.data.bpi;
-      this.info = response.data.bpi;
+      (this.account = response.data), null, 2;
     });
   },
 };
