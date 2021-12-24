@@ -62,6 +62,7 @@
             type="submit"
             class="md-raised md-success"
             :disabled="sending"
+            @click="submithogiadinh"
             >Tạo</md-button
           >
         </md-card-actions>
@@ -217,7 +218,9 @@
               </div>
             </div>
             <div class="md-layout-item md-size-100 text-right">
-              <md-button class="md-raised md-success">Save Profile</md-button>
+              <md-button class="md-raised md-success" @click="submitcanhan"
+                >Save Profile</md-button
+              >
             </div>
           </div>
         </md-card-content>
@@ -274,7 +277,7 @@ export default {
     };
   },
 
-    async created() {
+  async created() {
     this.area = this.$store.getters.getarea.area;
     axios.get(`http://localhost:3000/api/address/city`).then((res) => {
       (this.city = res.data), null, 2;
@@ -331,6 +334,33 @@ export default {
             return a.name.localeCompare(b.name);
           });
         });
+    },
+    submithogiadinh() {
+      axios
+        .post(`http://localhost:3000/api/family`, {
+          headOfHouseholdName: "Tran Van B",
+          idCardOfHeadOfHousehold: "125852548",
+          idAddressRef: "61ba30987c66d98010a92763",
+          householdCode: "00121304205",
+        })
+        .then((response) => (this.responseData = response.data));
+    },
+    submitcanhan() {
+      axios
+        .post(`http://localhost:3000/api/family`, {
+          human: {
+            name: "Hoang Van D",
+            cardId: "1234567895215",
+            job: "giao vien",
+            religion: "Phat giao",
+            idPermanentAddressRef: "61ba30987c66d98010a92765",
+            hometown: "abcder",
+            gender: "male",
+            birth: "2021-12-11T13:40:32.422Z",
+            educationalLevel: "Dai Hoc",
+          },
+        })
+        .then((response) => (this.responseData = response.data));
     },
   },
 };

@@ -44,14 +44,14 @@ export default {
   },
 
   methods: {
-    async submit() {
+     submit() {
       axios
         .post(`http://localhost:3000/api/user`, {
           // username: this.account.username,
           // password: this.account.password,
           // password: this.account.scopeName,
 
-          username: "01010218",
+          username: "01010203",
           password: "123456",
           scopeName: "tổ dân phố/làng 6",
         })
