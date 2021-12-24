@@ -229,11 +229,11 @@ export default {
         .then((res) => {
           (this.village = res.data), null, 2;
           this.sortedArray = this.village.sort((a, b) => {
-            return a.name.localeCompare(b.name);
+            return a.name.localeCompare(b.name); 
           });
         });
     },
-  },
+  },  
 };
 </script>
 <style scoped>

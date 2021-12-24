@@ -16,8 +16,10 @@
             >
               <v-select
                 :options="city"
-                label="title"
+                label="name"
                 placeholder="Tỉnh/thành phố"
+                v-model="selectedCity.name"
+                @input="getDistrict"
                 class="
                   md-dropdown-vselector
                   md-layout-item
@@ -28,9 +30,11 @@
               ></v-select>
 
               <v-select
-                :options="city"
-                label="title"
+                :options="district"
+                label="name"
                 placeholder="Huyện/quận"
+                v-model="selectedDistrict.name"
+                @input="getCommune"
                 class="
                   md-dropdown-vselector
                   md-layout-item
@@ -41,9 +45,11 @@
               ></v-select>
 
               <v-select
-                :options="city"
-                label="title"
+                :options="commune"
+                label="name"
                 placeholder="Xã/phường/thị trấn"
+                v-model="selectedCommune.name"
+                @input="getVillage"
                 class="
                   md-dropdown-vselector
                   md-layout-item
@@ -54,9 +60,11 @@
               ></v-select>
 
               <v-select
-                :options="city"
-                label="title"
+                :options="village"
+                label="name"
                 placeholder="Thôn/xóm/địa phương"
+                v-model="selectedVillage.name"
+                @input="getVillageData"
                 class="
                   md-dropdown-vselector
                   md-layout-item
@@ -66,10 +74,14 @@
                 "
               ></v-select>
               <!--  -->
+              <!--  -->
               <div
                 class="md-layout-item md-size-10 text-left md-vertical-center"
               >
-                <md-button class="md-raised md-success md-round"
+                <md-button
+                  class="md-raised md-success md-round"
+                  @click="updateData"
+                >
                   >Tìm kiếm</md-button
                 >
               </div>
@@ -169,9 +181,7 @@
         <md-card>
           <md-card-header data-background-color="purple">
             <h4 class="title">Các tôn giáo</h4>
-            <p class="category">
-            Số dân theo các tôn giáo trong khu vực
-            </p>
+            <p class="category">Số dân theo các tôn giáo trong khu vực</p>
           </md-card-header>
           <md-card-content>
             <ReligionTable table-header-color="purple"></ReligionTable>
@@ -184,7 +194,9 @@
         <md-card>
           <md-card-header data-background-color="purple">
             <h4 class="title">Trình độ phát triển giáo dục</h4>
-            <p class="category">Bằng cấp và trình độ của cư dân trong khu vực</p>
+            <p class="category">
+              Bằng cấp và trình độ của cư dân trong khu vực
+            </p>
           </md-card-header>
           <md-card-content>
             <EducationTable table-header-color="purple"></EducationTable>
@@ -209,7 +221,7 @@
 
 <script>
 import AuthService from "@/services/AuthService.js";
-import axios from 'axios';
+import axios from "axios";
 import { mapGetters } from "vuex";
 import {
   StatsCard,
@@ -218,7 +230,7 @@ import {
   AgeChartCard,
 } from "@/components";
 export default {
-  // props:[edudata], 
+  // props:[edudata],
   components: {
     StatsCard,
     ReligionTable,
@@ -227,16 +239,20 @@ export default {
   },
   data() {
     return {
-      city: [
-        { title: "Old Man's War" },
-        { title: "The Lock Artist" },
-        { title: "HTML5" },
-        { title: "Right Ho Jeeves" },
-        { title: "The Code of the Wooster" },
-        { title: "Thank You Jeeves" },
-        { title: "Thank You Jees" },
-      ],
-        users: [
+      cname: "",
+      city: [],
+      district: [],
+      commune: [],
+      village: [],
+      area: "",
+      event: "",
+      selectedCity: {},
+      selectedDistrict: {},
+      selectedCommune: {},
+      selectedVillage: {},
+      idFinder: "",
+      tracker: "/statistics",
+      users: [
         {
           id: 1,
           name: "du",
@@ -251,36 +267,137 @@ export default {
           country: "Niger",
           city: "Oud-Turnhout",
         },
-        ],
-      maleonfemale:"",
-      population:"",
-      outofjob:"",
-      illiteracy:"",//mù chữ
-      educationalData:[],
+      ],
+      maleonfemale: "",
+      population: "",
+      outofjob: "",
+      illiteracy: "", //mù chữ
+      educationalData: "",
     };
   },
-  computed: mapGetters(["getidarea"]), // get from store 
+  computed: mapGetters(["getidarea"]), // get from store
   //check if user is logged in
   // EducationTable(educationalData)
   async created() {
     if (!this.$store.getters.isLoggedIn) {
       this.$router.push("/");
     }
-        this.area = this.$store.getters.getarea.area;
-    axios.get(`http://localhost:3000/api/address/statistics`).then(res => {
-      this.maleonfemale = ((res.data.populationData[0].count/res.data.populationData[1].count)*100).toFixed(0);
-      this.population = res.data.populationData[0].count+res.data.populationData[1].count;
-      this.outofjob= ((res.data.employmentAndUnemploymentData[0].count/this.population)*100).toFixed(0);
-      this.illiteracy = (res.data.educationalData[0].count/ this.population).toFixed(0);
-      // this.educationalData=JSON.stringify(res.data.educationalData, null, 2);
-      // console.log(this.educationalData);
-
+    this.area = this.$store.getters.getarea.area;
+    axios.get(`http://localhost:3000/api/address/statistics`).then((res) => {
+      this.maleonfemale = (
+        (res.data.populationData[0].count / res.data.populationData[1].count) *
+        100
+      ).toFixed(0);
+      this.population =
+        res.data.populationData[0].count + res.data.populationData[1].count;
+      this.outofjob = (
+        (res.data.employmentAndUnemploymentData[0].count / this.population) *
+        100
+      ).toFixed(0);
+      this.illiteracy = (
+        res.data.educationalData[0].count / this.population
+      ).toFixed(0);
+    });
+    axios.get(`http://localhost:3000/api/address/city`).then((res) => {
+      (this.city = res.data), null, 2;
+      this.sortedArray = this.city.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
     });
   },
   methods: {
     logout() {
       this.$store.dispatch("logout");
       this.$router.push("/");
+    },
+    sortedArray() {}, // sort
+    //get data from api
+    getDistrict() {
+      console.log(this.selectedCity.name._id);
+      this.idFinder = this.selectedCity.name._id;
+      this.tracker = `/city/statistics?idCityRef=${this.idFinder}`;
+      this.selectedDistrict = {};
+      this.selectedCommune = {};
+      this.selectedVillage = {};
+      axios
+        .get(
+          `http://localhost:3000/api/address/district?idCityRef=${this.selectedCity.name._id}`
+        )
+        .then((res) => {
+          (this.district = res.data), null, 2;
+          this.sortedArray = this.district.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+          // console.log(this.district);  
+        });
+    },
+
+    getCommune() {
+      console.log(this.selectedDistrict.name);
+      this.idFinder = this.selectedDistrict.name._id;
+      this.tracker = `/district/statistics?idDistrictRef=${this.idFinder}`;
+      this.selectedCommune = {};
+      this.selectedVillage = {};
+      axios
+        .get(
+          `http://localhost:3000/api/address/commune?idDistrictRef=${this.selectedDistrict.name._id}`
+        )
+        .then((res) => {
+          (this.commune = res.data), null, 2;
+          this.sortedArray = this.commune.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        });
+    },
+    getVillage() {
+      console.log(this.selectedCommune.name);
+      this.idFinder = this.selectedCommune.name._id;
+      this.tracker = `/commune/statistics?idCommuneRef=${this.idFinder}`;
+      this.selectedVillage = {};
+      axios
+        .get(
+          `http://localhost:3000/api/address/village?idCommuneRef=${this.selectedCommune.name._id}`
+        )
+        .then((res) => {
+          (this.village = res.data), null, 2;
+          this.sortedArray = this.village.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        });
+    },
+    getVillageData() {
+      console.log(this.selectedVillage.name);
+      this.idFinder = this.selectedVillage.name._id;
+      this.tracker = `/village/statistics?idVillageRef=${this.idFinder}`;
+    },
+    getData() {
+      this.area = this.idFinder;
+    },
+    //update response data staistic  
+    updateData() {
+      console.log(this.tracker);
+      axios
+        .get(`http://localhost:3000/api/address${this.tracker}`)
+        .then((res) => {
+          if (this.population == null) {
+            return;
+          }
+          this.maleonfemale = (
+            (res.data.populationData[0].count /
+              res.data.populationData[1].count) *
+            100
+          ).toFixed(0);
+          this.population =
+            res.data.populationData[0].count + res.data.populationData[1].count;
+          this.outofjob = (
+            (res.data.employmentAndUnemploymentData[0].count /
+              this.population) *
+            100
+          ).toFixed(0); 
+          this.illiteracy = (
+            res.data.educationalData[0].count / this.population
+          ).toFixed(0);
+        });
     },
   },
 };
