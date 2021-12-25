@@ -15,7 +15,6 @@ import Notifications from "./components/NotificationPlugin";
 // MaterialDashboard plugin
 import MaterialDashboard from "./material-dashboard";
 
-import Chartist from "chartist";
 import VueApexCharts from "vue-apexcharts";
 
 //Auth:
@@ -30,7 +29,6 @@ const router = new VueRouter({
   linkExactActiveClass: "nav-item active",
 });
 
-Vue.prototype.$Chartist = Chartist;
 
 Vue.use(VueRouter);
 Vue.use(MaterialDashboard);
@@ -48,7 +46,6 @@ new Vue({
   router,
   store,
   data: {
-    Chartist: Chartist,
   },
   computed: mapGetters(["isLoggedIn", "getarea", "getidarea", "getareaCode"]), // getters from store
 });

@@ -13,11 +13,12 @@
                   <img :src="imgLogo" alt="" />
                 </p>
               </div>
-              <div class="md-layout-item md-medium-size-100">
-                <h5>Xin chào,</h5>
+              <div class="md-layout-item md-medium-size-100 text-left">
+                <p><br/><br/><br/><br/><br/></p>
+                <h4>Xin chào,</h4>
                 <div>
                   <p>ID của bạn: {{ getareaCode }}</p>
-                  <p>Đây là tài khoản thuốc quyền quản lý của {{ getarea }}</p>
+                  <p>Đây là tài khoản thuộc quyền quản lý của {{ getarea }}</p>
                   <p>
                     <a
                       target="_blank"
