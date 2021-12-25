@@ -197,6 +197,7 @@ export default {
       texttest: [],
       showlist: false,
       showinfo: false,
+      type: ["", "info", "success", "warning", "danger"],
     };
   },
   computed: mapGetters(["getidarea"]), // get from store
@@ -214,6 +215,16 @@ export default {
     });
   },
   methods: {
+    //alert
+    notifyVue(verticalAlign, horizontalAlign, mess, type) {
+      this.$notify({
+        message: mess,
+        icon: "error_outline",
+        horizontalAlign: horizontalAlign,
+        verticalAlign: verticalAlign,
+        type: type,
+      });
+    },
     logout() {
       this.$store.dispatch("logout");
       this.$router.push("/");
@@ -291,6 +302,14 @@ export default {
           (this.info = res.data), null, 2;
           console.log(this.info);
           this.showlist = true;
+        })
+        .catch((error) => {
+          console.warn(error.response.status );
+          if(error.response.status==404){
+            this.notifyVue("top", "center", "Không tìm thấy người phù hợp hoặc ngoài phạm vi quản lí.",this.type[3]);
+          } else {
+            this.notifyVue("top", "center", "Ngoài phạm vi quản lý",this.type[4]);
+          }
         });
     },
     //collect name of human
