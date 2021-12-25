@@ -114,6 +114,7 @@
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
         style="z-index: 0"
+        v-show="showlist"
       >
         <md-card>
           <md-card-header data-background-color="green">
@@ -145,6 +146,7 @@
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+        v-show="showdata"
       >
         <md-card>
           <md-card-header data-background-color="green">
@@ -193,6 +195,8 @@ export default {
       tracker: "",
       info: [],
       texttest: [],
+      showlist: false,
+      showinfo: false,
     };
   },
   computed: mapGetters(["getidarea"]), // get from store
@@ -286,11 +290,13 @@ export default {
         .then((res) => {
           (this.info = res.data), null, 2;
           console.log(this.info);
+          this.showlist = true;
         });
     },
     //collect name of human
     Extender() {
       this.texttest = this.info;
+      this.showdata = true;
     },
   },
 };
