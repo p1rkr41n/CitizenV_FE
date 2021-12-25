@@ -9,6 +9,7 @@ import NavTabsTable from "./Tables/NavTabsTable.vue";
 import ReligionTable from "./Tables/ReligionTable.vue";
 import SimpleTable from "./Tables/SimpleTable.vue";
 import EducationTable from "./Tables/EducationTable.vue";
+import FinderTable from "./Tables/FinderTable.vue";
 // Dropdowns
 import DropDown from "./Dropdown.vue";
 // export all components
@@ -22,4 +23,5 @@ export {
   DropDown,
   EducationTable,
   AgeChartCard,
+  FinderTable,
 };

@@ -117,24 +117,25 @@
         <md-card>
           <md-card-header data-background-color="green">
             <h4 class="title">Danh sách tìm kiếm</h4>
-            <!-- <p class="category">Số dân được liệt kê và sắp xếp theo tên</p> -->
+            <p class="category">Chọn tên để xem thông tin chi tiết bên cạnh</p>
           </md-card-header>
           <md-card-content>
             <!-- / -->
             <!-- v-show="show[0].state" -->
-            <md-table v-model="info" :table-header-color="tableHeaderColor">
+
+            <md-table
+              v-model="info"
+              :table-header-color="tableHeaderColor"
+              @click.native="Extender()"
+            >
               <!-- @click.native="Render1(1, item.areaCode, item.name)" -->
               <md-table-row slot="md-table-row" slot-scope="{ item }">
-                <md-table-cell md-label="STT">{{ item.stt }}</md-table-cell>
-                <md-table-cell md-label="Địa phương">{{
+                <md-table-cell md-label="Đinh danh cá nhân">{{
+                  item.cardId
+                }}</md-table-cell>
+                <md-table-cell md-label="Họ và tên">{{
                   item.name
                 }}</md-table-cell>
-                <!-- <md-table-cell md-label="scopeName">{{ item.areaCode }}</md-table-cell> -->
-                <!-- <md-table-cell md-label="Số dân">{{
-                  item.populationData
-                }}</md-table-cell>
-                <md-table-cell md-label="Nam">{{ item.male }}</md-table-cell>
-                <md-table-cell md-label="Nữ">{{ item.female }}</md-table-cell> -->
               </md-table-row>
             </md-table>
             <!-- / -->
@@ -147,10 +148,10 @@
         <md-card>
           <md-card-header data-background-color="green">
             <h4 class="title">Thông tin chi tiết</h4>
-            <!-- <p class="category">Số dân được liệt kê và sắp xếp theo tên</p> -->
+            <p class="category">Thông tin chi tiết của 01 người dân</p>
           </md-card-header>
           <md-card-content>
-            <simple-table table-header-color="green"></simple-table>
+            <finder-table table-header-color="green" :idSearch="texttest" ></finder-table>
           </md-card-content>
         </md-card>
       </div>
@@ -161,15 +162,10 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
-
-import { NavTabsCard, NavTabsTable } from "@/components";
-import ReligionTableVue from "../components/Tables/ReligionTable.vue";
+import { FinderTable } from "@/components";
 
 export default {
-  // components: {
-  //   NavTabsCard,
-  //   NavTabsTable,
-  // },
+  components: { FinderTable },
   props: {
     tableHeaderColor: {
       type: String,
@@ -190,8 +186,9 @@ export default {
       selectedCommune: {},
       selectedVillage: {},
       idFinder: "",
-      tracker: "/human/search",
+      tracker: "",
       info: [],
+      texttest: [],
     };
   },
   computed: mapGetters(["getidarea"]), // get from store
@@ -221,7 +218,7 @@ export default {
       this.selectedCommune = {};
       this.selectedVillage = {};
       this.idFinder = this.selectedCity.name._id;
-      this.tracker = `/human/search?page=1&idCityRef=${this.idFinder}`;
+      this.tracker = `&idCityRef=${this.idFinder}`;
 
       axios
         .get(
@@ -241,7 +238,7 @@ export default {
       this.selectedCommune = {};
       this.selectedVillage = {};
       this.idFinder = this.selectedDistrict.name._id;
-      this.tracker = `/human/search?page=1&idDistrictRef=${this.idFinder}`;
+      this.tracker = `&idDistrictRef=${this.idFinder}`;
       axios
         .get(
           `http://localhost:3000/api/address/commune?idDistrictRef=${this.selectedDistrict.name._id}`
@@ -257,7 +254,7 @@ export default {
       console.log(this.selectedCommune.name);
       this.selectedVillage = {};
       this.idFinder = this.selectedCommune.name._id;
-      this.tracker = `/human/search?page=1&idCommuneRef=${this.idFinder}`;
+      this.tracker = `&idCommuneRef=${this.idFinder}`;
       axios
         .get(
           `http://localhost:3000/api/address/village?idCommuneRef=${this.selectedCommune.name._id}`
@@ -272,33 +269,25 @@ export default {
     getVillageData() {
       console.log(this.selectedVillage.name);
       this.idFinder = this.selectedVillage.name._id;
-      this.tracker = `/human/search?page=1&idVillageRef=${this.idFinder}`;
+      this.tracker = `&idVillageRef=${this.idFinder}`;
     },
     //update response data staistic
     updateData() {
       console.log(this.tracker);
       console.log(this.cname);
       axios
-        .get(`http://localhost:3000/api${this.tracker}&name=${this.cname}`)
+        .get(
+          `http://localhost:3000/api/human/search?page=1${this.tracker}&name=${this.cname}`
+        )
         .then((res) => {
           (this.info = res.data), null, 2;
           console.log(this.info);
-          this.info = this.info.map((item, index) => {
-            stt: index + 1;
-            name: item.name;
-            gender: item.gender;
-            cardID: item.cardID;
-            birth: item.birth;
-            job: item.job;
-            religion: item.religion;
-            hometown: item.hometown;
-            educationalLevel: item.educationalLevel;
-            permanentAddress: item.permanentAddress;
-            idTemporaryResidenceAddressRef: item.idTemporaryResidenceAddressRef;
-          });
         });
-        
     },
+    //collect name of human
+    Extender(){
+      this.texttest = this.info;
+    }
   },
 };
 </script>
