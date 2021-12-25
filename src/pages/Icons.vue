@@ -112,7 +112,7 @@
         </div>
       </div>
       <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50" style="z-index: 0;"
       >
         <md-card>
           <md-card-header data-background-color="green">
@@ -151,7 +151,8 @@
             <p class="category">Thông tin chi tiết của 01 người dân</p>
           </md-card-header>
           <md-card-content>
-            <finder-table table-header-color="green" :idSearch="texttest" ></finder-table>
+            <finder-table table-header-color="green"
+ :idSearch="texttest" ></finder-table>
           </md-card-content>
         </md-card>
       </div>
