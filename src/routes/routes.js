@@ -1,10 +1,10 @@
 import DashboardLayout from "@/pages/Layout/DashboardLayout.vue";
 
-import Dashboard from "@/pages/Dashboard.vue";
+import Statistics from "@/pages/Statistics.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import TableList from "@/pages/TableList.vue";
-import Typography from "@/pages/Typography.vue";
-import Icons from "@/pages/Icons.vue";
+import Home from "@/pages/Home.vue";
+import Searcher from "@/pages/Searcher.vue";
 import Population from "@/pages/Population.vue";
 import Login from "@/pages/Login.vue";
 
@@ -22,7 +22,7 @@ const routes = [
       {
         path: "statistics",
         name: "Thống kê",
-        component: Dashboard,
+        component: Statistics,
       },
       {
         path: "Population",
@@ -42,12 +42,12 @@ const routes = [
       {
         path: "home",
         name: "Giới thiệu",
-        component: Typography,
+        component: Home,
       },
       {
         path: "searcher",
         name: "Tìm kiếm",
-        component: Icons,
+        component: Searcher,
       },
     ],
   },
