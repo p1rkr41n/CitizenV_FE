@@ -1,7 +1,7 @@
 <template>
   <form>
     <md-field>
-      <label>Ten tai khoan</label>
+      <label>ID</label>
       <md-input v-model="username"></md-input>
     </md-field>
     <md-field>
@@ -32,22 +32,14 @@ export default {
   data() {
     return {
       declarable: "",
-      areaName: "",
-      username: "",
+      ID: "",
     };
   },
-  async created() {
-    axios.get(`http://localhost:3000/api/user/all`).then((response) => {
-      (this.account = response.data), null, 2;
-    });
-  },
-
   methos: {
     submit() {
       axios
         .put(
-          `http://localhost:3000/api/user/change-declare-permission?id=
-${this.area.id}`,
+          `http://localhost:3000/api/user/change-declare-permission?id=` + this.$route.account.id,
           {
             declarable: this.declarable,
             areaName: this.areaName,

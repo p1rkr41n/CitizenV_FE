@@ -41,6 +41,7 @@ export default {
   },
   data() {
     return {
+      family: [],
       headOfHouseholdName: "",
       idCardOfHeadOfHousehold: "",
       idAddressRef: "",
@@ -55,13 +56,14 @@ export default {
           family: {
             headOfHouseholdName: this.headOfHouseholdName,
             idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
-            idAddressRef:this.idAddressRef,
+            idAddressRef: this.idAddressRef,
             householdCode: this.householdCode,
           },
         })
         .then((response) => (this.responseData = response.data));
       // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
       // window.location.reload();
+      console.log(family);
     },
   },
 };

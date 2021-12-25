@@ -54,7 +54,7 @@ export default {
         })
         .then((response) => (this.responseData = response.data));
       // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
-      // window.location.reload();
+      window.location.reload();
     },
   },
 };
