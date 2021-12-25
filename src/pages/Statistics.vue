@@ -415,7 +415,7 @@ export default {
             this.notifyVue(
               "top",
               "center",
-              "Không tìm thấy người phù hợp hoặc ngoài phạm vi quản lí.",
+              "Không tìm thấy địa phương phù hợp hoặc ngoài phạm vi quản lí.",
               this.type[3]
             );
           } else {
