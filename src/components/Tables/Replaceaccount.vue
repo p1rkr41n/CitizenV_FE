@@ -45,10 +45,14 @@ export default {
   methos: {
     submit() {
       axios
-        .put(`http://localhost:3000/api/address/aid=${this.dfe.name._id}`, {
-          declarable: this.declarable,
-          areaName: this.areaName,
-        })
+        .put(
+          `http://localhost:3000/api/user/change-declare-permission?id=
+${this.area.id}`,
+          {
+            declarable: this.declarable,
+            areaName: this.areaName,
+          }
+        )
         .then((response) => (this.responseData = response.data));
     },
   },
