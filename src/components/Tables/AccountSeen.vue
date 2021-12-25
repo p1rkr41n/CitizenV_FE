@@ -31,11 +31,11 @@ export default {
     return {
       account: [],
       username: "",
-      name: " ",
+      name: "",
       managedArea: "",
     };
   },
-  
+
   async created() {
     axios.get(`http://localhost:3000/api/user/all`).then((response) => {
       (this.account = response.data), null, 2;
