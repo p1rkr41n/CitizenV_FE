@@ -23,6 +23,12 @@
         <md-card-content>
           <Replaceaccount></Replaceaccount>
         </md-card-content>
+        <md-card-content>
+          <Khaibao></Khaibao>
+        </md-card-content>
+        <md-card-content>
+          <Khaibaocanhan></Khaibaocanhan>
+        </md-card-content>
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
@@ -36,12 +42,16 @@
 import AccountSeen from "../components/Tables/AccountSeen.vue";
 import Account from "../components/Tables/Account.vue";
 import Replaceaccount from "../components/Tables/Replaceaccount.vue";
+import Khaibao from "../components/Tables/Khaibao.vue";
+import Khaibaocanhan from "../components/Tables/Khaibaocanhan.vue";
 
 export default {
   components: {
     AccountSeen,
     Account,
     Replaceaccount,
+    Khaibaocanhan,
+    Khaibao,
   },
   data() {
     return {
