@@ -38,9 +38,9 @@ export default {
     return {
       isOpen: false,
       sidebarColors: [
-        { color: "purple", active: false },
+        { color: "purple", active: true },
         { color: "blue", active: false },
-        { color: "green", active: true },
+        { color: "green", active: false },
         { color: "orange", active: false },
         { color: "red", active: false },
       ],
