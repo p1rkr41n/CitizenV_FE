@@ -1,21 +1,5 @@
 <template>
   <form>
-    <!-- <md-table v-model="account" :table-header-color="tableHeaderColor">
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Tên đăng nhập">
-          <md-input type="text" name="username" v-model="username">{{ item.username }}</md-input>
-        </md-table-cell>
-        <md-table-cell md-label="Mật khẩu">
-          <md-input type="text" name="password" >{{ item.password }}</md-input></md-table-cell
-        >
-        <md-table-cell md-label="scopeName"
-          ><md-input type="text">{{ item.scopeName }}</md-input></md-table-cell
-        >
-        <md-button class="md-raised md-success" @click="submit" value="submit"
-          >Cấp tài khoản</md-button
-        >
-      </md-table-row>
-    </md-table> -->
     <md-field>
       <label>Tên tài khoản</label>
       <md-input v-model="username"></md-input>
@@ -46,6 +30,10 @@ export default {
       type: String,
       default: "",
     },
+    index: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -66,12 +54,8 @@ export default {
         })
         .then((response) => (this.responseData = response.data));
       // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
+      window.location.reload();
     },
-
-    // add() {
-    //   username = this.responseData.username;
-    //   scopeName= this.responseData.scopeName;
-    // },
   },
 };
 </script>

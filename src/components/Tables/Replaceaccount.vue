@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <md-table v-model="account" :table-header-color="tableHeaderColor">
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="ID">{{ item.username }}</md-table-cell>
-        <md-table-cell md-label="Khu vực">{{ item.managedArea }}</md-table-cell>
-        <md-table-cell md-label="Hoàn thành">{{
-          item.completede
-        }}</md-table-cell>
-        <md-table-cell md-label="declarable">{{
-          item.declarable
-        }}</md-table-cell>
-      </md-table-row>
-    </md-table>
-    <md-button class="md-raised md-success" @click="suataikhoan"
+  <form>
+    <md-field>
+      <label>Ten tai khoan</label>
+      <md-input v-model="username"></md-input>
+    </md-field>
+    <md-field>
+      <label>Khu vuc</label>
+      <md-input v-model="areaName"></md-input>
+    </md-field>
+    <md-field>
+      <input type="checkbox" id="declarable" v-model="declarable" />
+    </md-field>
+    <md-button class="md-raised md-success" @click="submit" value="submit"
       >Sửa tài khoản</md-button
     >
-  </div>
+  </form>
 </template>
 
 <script>
@@ -33,9 +32,9 @@ export default {
   data() {
     return {
       account: [],
+      declarable: "",
+      areaName: "",
       username: "",
-      name: " ",
-      managedArea: "",
     };
   },
 
@@ -45,11 +44,16 @@ export default {
     });
   },
 
-  methods: {
-    suataikhoan() {
-      axios.put(`http://localhost:3000/api/change-declare-permission?id=
-`),
-        { declarable: true / false, areaName: "" };
+  methos: {
+    submit() {
+      axios.put(
+        `http://localhost:3000/api/address/change-info-area?id=61bb616c13e20a93cddc065d
+`,
+        {
+          declarable: this.declarable,
+          areaName: this.areaName,
+        }
+      );
     },
   },
 };

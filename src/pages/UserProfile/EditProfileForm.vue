@@ -348,7 +348,7 @@ export default {
     submithogiadinh() {
       axios
         .post(`http://localhost:3000/api/family`, {
-          headOfHouseholdName: "Tran Van B",
+          headOfHouseholdName: this.headOfHouseholdName,
           idCardOfHeadOfHousehold: "125852548",
           idAddressRef: "61ba30987c66d98010a92763",
           householdCode: "00121304205",
