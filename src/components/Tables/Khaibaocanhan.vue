@@ -104,7 +104,7 @@ export default {
     sua() {
       axios
         .put(
-          `http://localhost:3000/api/human/61ba378ca7ef91278c1428db/?idFamily=${this.name}`,
+          `http://localhost:3000/api/human/61ba378ca7ef91278c1428db/?idFamily=${this.idFamily}`,
           {
             human: {
               name: this.name,

@@ -15,17 +15,11 @@
     <md-field>
       <md-input type="checkbox" v-model="declarable"></md-input>
     </md-field>
-    <md-button
-      class="md-raised md-success"
-      @click="changearea"
-      value="changearea"
-      >Sửa khu vuc</md-button
+    <md-button class="md-raised md-success" @click="submit" value="submit"
+      >Sửa khu vực</md-button
     >
-    <md-button
-      class="md-raised md-success"
-      @click="changedeclarable"
-      value="changedeclarable"
-      >Sửa quyen</md-button
+    <md-button class="md-raised md-success" @click="suadoi" value="suadoi"
+      >Sửa quyền</md-button
     >
   </form>
 </template>
@@ -34,7 +28,7 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 export default {
-  name: "account",
+  name: "replace",
   computed: mapGetters(["getidarea"]),
   props: {
     tableHeaderColor: {
@@ -50,7 +44,7 @@ export default {
     };
   },
   methos: {
-    changearea() {
+    submit() {
       axios
         .put(
           `http://localhost:3000/api/address/change-info-area?id=${this.idboss}`,
@@ -60,7 +54,7 @@ export default {
         )
         .then((response) => (this.responseData = response.data));
     },
-    changedeclarable() {
+    suadoi() {
       axios
         .put(
           `http://localhost:3000/api/user/change-declare-permission?id=${this.idboss}`,
@@ -70,6 +64,7 @@ export default {
         )
         .then((response) => (this.responseData = response.data));
     },
+   
   },
 };
 </script>
