@@ -1,22 +1,22 @@
 <template>
-  <div>
-    <md-table v-model="account" :table-header-color="tableHeaderColor">
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Tên đăng nhập">
-          <md-input type="text">{{ item.username }}</md-input>
-        </md-table-cell>
-        <md-table-cell md-label="Mật khẩu">
-          <md-input type="text">{{ item.password }}</md-input></md-table-cell
-        >
-        <md-table-cell md-label="scopeName"
-          ><md-input type="text">{{ item.scopeName }}</md-input></md-table-cell
-        >
-        <md-button class="md-raised md-success" @click="submit" value="submit"
-          >Cấp tài khoản</md-button
-        >
-      </md-table-row>
-    </md-table>
-  </div>
+  <form>
+    <md-field>
+      <label>Tên tài khoản</label>
+      <md-input v-model="username"></md-input>
+    </md-field>
+
+    <md-field>
+      <label>Mật khẩu</label>
+      <md-input v-model="password"></md-input>
+    </md-field>
+    <md-field>
+      <label>Địa phương</label>
+      <md-input v-model="scopeName"></md-input>
+    </md-field>
+    <md-button class="md-raised md-success" @click="submit" value="submit"
+      >Cấp tài khoản</md-button
+    >
+  </form>
 </template>
 
 <script>
@@ -30,35 +30,31 @@ export default {
       type: String,
       default: "",
     },
+    index: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
-      account: [
-        {
-          username: "",
-          password: "",
-          scopeName: "",
-        },
-      ],
+      username: "",
+      password: "",
+      scopeName: "",
+      responseData: "",
     };
   },
 
   methods: {
-     submit() {
+    submit() {
       axios
         .post(`http://localhost:3000/api/user`, {
-          // username: this.account.username,
-          // password: this.account.password,
-          // password: this.account.scopeName,
-
-          username: "01010203",
-          password: "123456",
-          scopeName: "tổ dân phố/làng 6",
+          username: this.username,
+          password: this.password,
+          scopeName: this.scopeName,
         })
         .then((response) => (this.responseData = response.data));
       // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
-
-      console.log(account.username);
+      window.location.reload();
     },
   },
 };
