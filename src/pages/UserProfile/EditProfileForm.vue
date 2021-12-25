@@ -86,14 +86,14 @@
             <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
                 <label>Số định danh cá nhân(CCCD)</label>
-                <md-input v-model="cc" type="number"></md-input>
+                <md-input v-model="cardId" type="number"></md-input>
               </md-field>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
                 <label>Họ và tên</label>
                 <md-input
-                  v-model="cname"
+                  v-model="name"
                   type="text"
                   onkeyup="this.value = this.value.toUpperCase();"
                   required
@@ -257,7 +257,12 @@ export default {
       commune: [],
       village: [],
       area: "",
+      headOfHouseholdName: "",
+      idCardOfHeadOfHousehold: "",
+      idAddressRef: "",
+      householdCode: "",
       event: "",
+      
       selectedCity: {},
       selectedDistrict: {},
       selectedCommune: {},
@@ -348,10 +353,12 @@ export default {
     submithogiadinh() {
       axios
         .post(`http://localhost:3000/api/family`, {
-          headOfHouseholdName: this.headOfHouseholdName,
-          idCardOfHeadOfHousehold: "125852548",
-          idAddressRef: "61ba30987c66d98010a92763",
-          householdCode: "00121304205",
+          family: {
+            headOfHouseholdName: this.headOfHouseholdName,
+            idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
+            idAddressRef: this.idAddressRef,
+            householdCode: this.householdCode,
+          },
         })
         .then((response) => (this.responseData = response.data));
     },
@@ -370,15 +377,15 @@ export default {
       axios
         .post(`http://localhost:3000/api/human?idFamily=)`, {
           human: {
-            name: "Hoang Van D",
-            cardId: "1234567895215",
-            job: "giao vien",
-            religion: "Phat giao",
-            idPermanentAddressRef: "61ba30987c66d98010a92765",
-            hometown: "abcder",
-            gender: "male",
-            birth: "2021-12-11T13:40:32.422Z",
-            educationalLevel: "Dai Hoc",
+            name: this.name,
+            cardId: this.cardId,
+            job: this.job,
+            religion: this.religion,
+            idPermanentAddressRef: this.idPermanentAddressRef,
+            hometown: this.hometown,
+            gender: this.gender,
+            birth: this.birth,
+            educationalLevel: this.educationalLevel,
           },
         })
         .then((response) => (this.responseData = response.data));

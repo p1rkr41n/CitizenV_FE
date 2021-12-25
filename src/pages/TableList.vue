@@ -15,17 +15,14 @@
           <md-card-content>
             <AccountSeen></AccountSeen>
           </md-card-content>
-         
         </md-card>
       </div>
-
-     <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card-content>
-            <Replaceaccount></Replaceaccount>
-          </md-card-content>
-     
+          <Replaceaccount></Replaceaccount>
+        </md-card-content>
       </div>
       <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
