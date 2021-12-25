@@ -7,7 +7,7 @@
         <md-card>
           <md-card-header data-background-color="green">
             <h4 class="title">Danh sách dân só</h4>
-            <p class="category">Số dân được liệt kê và sắp xếp theo tỉnh</p>
+            <p class="category">Số dân được liệt kê và sắp xếp theo tên</p>
           </md-card-header>
           <md-card-content>
             <simple-table table-header-color="green"></simple-table>
