@@ -9,10 +9,16 @@
       <md-input v-model="areaName"></md-input>
     </md-field>
     <md-field>
-      <md-input type="checkbox" id="declarable" v-model="declarable"></md-input>
+      <label>idboss</label>
+      <md-input v-model="idboss"></md-input>
     </md-field>
-    <md-button class="md-raised md-success" @click="submit" value="submit"
-      >Sửa tài khoản</md-button
+    <md-field>
+      <md-input type="checkbox" v-model="declarable"></md-input>
+    </md-field>
+    <md-button class="md-raised md-success" @click="changearea" value="changearea"
+      >Sửa khu vuc</md-button
+    > <md-button class="md-raised md-success" @click="changedeclarable" value="changedeclarable"
+      >Sửa quyen</md-button
     >
   </form>
 </template>
@@ -32,19 +38,26 @@ export default {
   data() {
     return {
       declarable: "",
-      ID: "",
+      areaName: "",
+      idboss: "",
     };
   },
   methos: {
-    submit() {
+   changearea() {
       axios
         .put(
-          `http://localhost:3000/api/user/change-declare-permission?id=` + this.$route.account.id,
+          `http://localhost:3000/api/address/change-info-area?id=${this.idboss}`,
           {
-            declarable: this.declarable,
             areaName: this.areaName,
-          }
+          },
         )
+        .then((response) => (this.responseData = response.data));
+    },
+    changedeclarable(){
+ axios
+        .put(`http://localhost:3000/api/user/change-declare-permission?id=${this.idboss}`, {
+           declarable: this.declarable,
+        })
         .then((response) => (this.responseData = response.data));
     },
   },

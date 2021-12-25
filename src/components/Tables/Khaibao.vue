@@ -4,7 +4,6 @@
       <label>headOfHouseholdName</label>
       <md-input v-model="headOfHouseholdName"></md-input>
     </md-field>
-
     <md-field>
       <label>idCardOfHeadOfHousehold</label>
       <md-input v-model="idCardOfHeadOfHousehold"></md-input>
@@ -15,11 +14,17 @@
     </md-field>
     <md-field>
       <label>householdCode</label>
-      <md-input v-model="householdCode"></md-input>
+      <md-input v-model="householdCode"></md-input> </md-field
+    ><md-field>
+      <label>idboss</label>
+      <md-input v-model="idboss"></md-input>
     </md-field>
     <md-button class="md-raised md-success" @click="submit" value="submit"
       >Khai bao</md-button
     >
+    <md-button class="md-raised md-success" @click="suadoi" value="suadoi"
+      >SUa
+    </md-button>
   </form>
 </template>
 
@@ -46,6 +51,7 @@ export default {
       idCardOfHeadOfHousehold: "",
       idAddressRef: "",
       householdCode: "",
+      idboss: "",
     };
   },
 
@@ -63,7 +69,19 @@ export default {
         .then((response) => (this.responseData = response.data));
       // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
       // window.location.reload();
-      console.log(family);
+    },
+
+    suadoi() {
+      axios
+        .put(`http://localhost:3000/api/family?idFamily=${this.idboss}`, {
+          family: {
+            headOfHouseholdName: this.headOfHouseholdName,
+            idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
+            idAddressRef: this.idAddressRef,
+            householdCode: this.householdCode,
+          },
+        })
+        .then((response) => (this.responseData = response.data));
     },
   },
 };

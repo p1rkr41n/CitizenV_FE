@@ -1,5 +1,9 @@
 <template>
   <form>
+     <md-field>
+      <label>idFamily</label>
+      <md-input v-model="idFamily"></md-input>
+    </md-field>
     <md-field>
       <label>name</label>
       <md-input v-model="name"></md-input>
@@ -40,6 +44,9 @@
     <md-button class="md-raised md-success" @click="submit" value="submit"
       >Khai bao ca nhann</md-button
     >
+    <md-button class="md-raised md-success" @click="sua" value="sua"
+      >sua</md-button
+    >
   </form>
 </template>
 
@@ -70,15 +77,34 @@ export default {
       gender: "",
       birth: "",
       educationalLevel: "",
+      idFamily:"",
     };
   },
 
   methods: {
     submit() {
       axios
-        .post(
-          `http://localhost:3000/api/human?idFamily=` + this.$route.Family.id,
-
+        .post(`http://localhost:3000/api/human?idFamily=${this.idFamily}`, {
+          human: {
+            name: this.name,
+            cardId: this.cardId,
+            job: this.job,
+            religion: this.religion,
+            idPermanentAddressRef: this.idPermanentAddressRef,
+            hometown: this.hometown,
+            gender: this.gender,
+            birth: this.birth,
+            educationalLevel: this.educationalLevel,
+          },
+        })
+        .then((response) => (this.responseData = response.data));
+      // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
+      // window.location.reload();
+    },
+    sua() {
+      axios
+        .put(
+          `http://localhost:3000/api/human/61ba378ca7ef91278c1428db/?idFamily=${this.name}`,
           {
             human: {
               name: this.name,
@@ -88,14 +114,12 @@ export default {
               idPermanentAddressRef: this.idPermanentAddressRef,
               hometown: this.hometown,
               gender: this.gender,
-              birth:this.birth,
+              birth: this.birth,
               educationalLevel: this.educationalLevel,
             },
           }
         )
         .then((response) => (this.responseData = response.data));
-      // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
-      // window.location.reload();
     },
   },
 };
