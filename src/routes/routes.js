@@ -20,7 +20,7 @@ const routes = [
     component: DashboardLayout,
     children: [
       {
-        path: "dashboard",
+        path: "statistics",
         name: "Thống kê",
         component: Dashboard,
       },
@@ -40,12 +40,12 @@ const routes = [
         component: TableList,
       },
       {
-        path: "typography",
+        path: "home",
         name: "Giới thiệu",
         component: Typography,
       },
       {
-        path: "icons",
+        path: "searcher",
         name: "Tìm kiếm",
         component: Icons,
       },

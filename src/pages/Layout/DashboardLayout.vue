@@ -8,11 +8,11 @@
     >
       <mobile-menu slot="content"></mobile-menu>
 
-      <sidebar-link to="/app/typography">
+      <sidebar-link to="/app/home">
         <md-icon>home</md-icon>
         <p>GIỚI THIỆU</p>
       </sidebar-link>
-      <sidebar-link to="/app/dashboard">
+      <sidebar-link to="/app/statistics">
         <md-icon>dashboard</md-icon>
         <p>THỐNG KÊ</p>
       </sidebar-link>
@@ -29,7 +29,7 @@
         <p>QUẢN LÝ TÀI KHOẢN</p>
       </sidebar-link>
 
-      <sidebar-link to="/app/icons">
+      <sidebar-link to="/app/searcher">
         <md-icon>find_in_page</md-icon>
         <p>TÌM KIÊM</p>
       </sidebar-link>

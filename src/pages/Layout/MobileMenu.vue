@@ -9,7 +9,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
-            <a href="#/app/typography" style="text-overflow: ellipsis ellipsis"
+            <a href="#/app/home" style="text-overflow: ellipsis ellipsis"
               >ID: {{ getareaCode }}</a
             >
           </li>

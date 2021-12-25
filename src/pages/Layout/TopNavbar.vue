@@ -18,14 +18,14 @@
 
         <div class="md-collapse">
           <md-list>
-            <md-list-item href="/#/app/dashboard">
+            <md-list-item href="/#/app/statistics">
               <i class="material-icons">dashboard</i>
               <p class="hidden-lg hidden-md">Dashboard</p>
             </md-list-item>
 
             <li class="md-list-item">
               <a
-                href="/#/app/typography"
+                href="/#/app/home"
                 class="
                   md-list-item-router md-list-item-container md-button-clean
                   dropdown
@@ -43,7 +43,7 @@
                     </md-button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
-                        <a href="#/app/typography" style="text-overflow: ellipsis ellipsis;" >ID: {{ getareaCode }}</a>
+                        <a href="#/app/home" style="text-overflow: ellipsis ellipsis;" >ID: {{ getareaCode }}</a>
                       </li>
                       <li>
                         <a value="Logout" @click="logout" href="#">Logout</a>

@@ -58,7 +58,7 @@ export default {
   //check if user is logged in
   async created() {
     if (this.$store.getters.isLoggedIn) {
-      this.$router.push("/app/dashboard");
+      this.$router.push("/app/statistics");
     }
     this.area = this.$store.getters.getarea.area;
     // this.secretMessage = await AuthService.getSecretContent();
@@ -80,7 +80,7 @@ export default {
         const id = this.username;
         // console.log(token, name, area, idArea);
         this.$store.dispatch("login", { token, areaCode, area, idArea, id });
-        this.$router.push("/app/dashboard/");
+        this.$router.push("/app/statistics/");
       } catch (error) {
         this.msg = "Nhập sai tài khoản hoặc mật khẩu!";
       }
