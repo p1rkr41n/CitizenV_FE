@@ -33,7 +33,7 @@
 <script>
 export default {};
 </script>
-<style lang="scss" >
+<style scoped lang="scss" >
 $color: #5c8df6;
 $colorRight: darken(#5c8df6, 15%);
 $colorLeft: darken(#5c8df6, 5%);
