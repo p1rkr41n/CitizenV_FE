@@ -15,8 +15,10 @@
     <md-field>
       <md-input type="checkbox" v-model="declarable"></md-input>
     </md-field>
-    <md-button class="md-raised md-success" @click="submit" value="submit"
-      >Sửa tài khoản</md-button
+    <md-button class="md-raised md-success" @click="changearea" value="changearea"
+      >Sửa khu vuc</md-button
+    > <md-button class="md-raised md-success" @click="changedeclarable" value="changedeclarable"
+      >Sửa quyen</md-button
     >
   </form>
 </template>
@@ -41,14 +43,21 @@ export default {
     };
   },
   methos: {
-    submit() {
+   changearea() {
       axios
         .put(
-          `http://localhost:3000/api/user/change-declare-permission?id=${this.idboss}`,
+          `http://localhost:3000/api/address/change-info-area?id=${this.idboss}`,
           {
             areaName: this.areaName,
-          }
+          },
         )
+        .then((response) => (this.responseData = response.data));
+    },
+    changedeclarable(){
+ axios
+        .put(`http://localhost:3000/api/user/change-declare-permission?id=${this.idboss}`, {
+           declarable: this.declarable,
+        })
         .then((response) => (this.responseData = response.data));
     },
   },
