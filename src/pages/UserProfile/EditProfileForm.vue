@@ -5,7 +5,7 @@
     >
       <md-card>
         <md-card-header :data-background-color="dataBackgroundColor">
-          <h4 class="title">Hộ gia đình</h4>
+          <h4 class="title">Mẫu khai báo theo hộ gia đình</h4>
           <p class="category">Thông tin cơ bản về hộ gia đình đó</p>
         </md-card-header>
         <md-card-content>
@@ -78,7 +78,7 @@
     <form>
       <md-card>
         <md-card-header :data-background-color="dataBackgroundColor">
-          <h4 class="title">Thành viên</h4>
+          <h4 class="title">Mẫu khai báo theo thành viên</h4>
           <p class="category">Thông tin cá nhân mỗi người trong hộ</p>
         </md-card-header>
         <md-card-content>

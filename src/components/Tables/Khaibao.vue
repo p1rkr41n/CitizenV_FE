@@ -63,7 +63,7 @@ export default {
           family: {
             headOfHouseholdName: this.headOfHouseholdName,
             idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
-            idAddressRef: this.idAddressRef,
+            idAddressRef: this.getidarea,
             householdCode: this.householdCode,
           },
         })

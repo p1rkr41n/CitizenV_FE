@@ -22,7 +22,7 @@ import store from "./store";
 import Axios from "axios";
 Vue.config.productionTip = false;
 // set auth header
-Axios.defaults.headers.common["x-auth-token"] = `${store.state.token}`; // get token from store
+Axios.defaults.headers.common["token"] = `${store.state.token}`; // get token from store
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
