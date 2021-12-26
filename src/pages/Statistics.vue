@@ -273,6 +273,7 @@ export default {
       outofjob: "",
       illiteracy: "", //mù chữ
       educationalData: "",
+      type: ["", "info", "success", "warning", "danger"],
     };
   },
   computed: mapGetters(["getidarea"]), // get from store
@@ -306,6 +307,16 @@ export default {
     });
   },
   methods: {
+    //alert
+    notifyVue(verticalAlign, horizontalAlign, mess, type) {
+      this.$notify({
+        message: mess,
+        icon: "error_outline",
+        horizontalAlign: horizontalAlign,
+        verticalAlign: verticalAlign,
+        type: type,
+      });
+    },
     logout() {
       this.$store.dispatch("logout");
       this.$router.push("/");
@@ -328,7 +339,7 @@ export default {
           this.sortedArray = this.district.sort((a, b) => {
             return a.name.localeCompare(b.name);
           });
-          // console.log(this.district);  
+          // console.log(this.district);
         });
     },
 
@@ -373,7 +384,7 @@ export default {
     // getData() {
     //   this.area = this.idFinder;
     // },
-    //update response data staistic  
+    //update response data staistic
     updateData() {
       console.log(this.tracker);
       axios
@@ -393,10 +404,28 @@ export default {
             (res.data.employmentAndUnemploymentData[0].count /
               this.population) *
             100
-          ).toFixed(0); 
+          ).toFixed(0);
           this.illiteracy = (
             res.data.educationalData[0].count / this.population
           ).toFixed(0);
+        })
+        .catch((error) => {
+          console.warn(error.response.status);
+          if (error.response.status == 404) {
+            this.notifyVue(
+              "top",
+              "center",
+              "Không tìm thấy địa phương phù hợp hoặc ngoài phạm vi quản lí.",
+              this.type[3]
+            );
+          } else {
+            this.notifyVue(
+              "top",
+              "center",
+              "Ngoài phạm vi quản lý",
+              this.type[4]
+            );
+          }
         });
     },
   },

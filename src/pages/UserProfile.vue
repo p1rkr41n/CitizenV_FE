@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { EditProfileForm, UserCard } from "@/pages";
+import { EditProfileForm} from "@/pages";
 import Khaibao from "../components/Tables/Khaibao.vue";
 import Khaibaocanhan from "../components/Tables/Khaibaocanhan.vue";
 

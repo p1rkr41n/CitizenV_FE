@@ -28,56 +28,19 @@
             <img :src="item.image" alt="" />
           </a>
         </li>
-
-        <li class="button-container">
-          <social-sharing
-            :url="shareUrl"
-            inline-template
-            title="Vue Material Dashboard - Admin Template for Vue.js"
-            hashtags="vuejs, dashboard, vuematerial"
-            twitter-user="creativetim"
-          >
-            <div class="centered-buttons">
-              <network
-                network="facebook"
-                class="md-button md-round md-just-icon md-facebook"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </network>
-              <network
-                network="twitter"
-                class="md-button md-round md-just-icon md-twitter"
-              >
-                <i class="fab fa-twitter"></i>
-              </network>
-            </div>
-          </social-sharing>
-        </li>
       </ul>
     </div>
   </div>
 </template>
 <script>
-import Vue from "vue";
-import SocialSharing from "vue-social-sharing";
-import VueGitHubButtons from "vue-github-buttons";
-import "vue-github-buttons/dist/vue-github-buttons.css";
-
-Vue.use(SocialSharing);
-Vue.use(VueGitHubButtons, { useCache: true });
 export default {
   data() {
     return {
-      documentationLink:
-        "https://creativetimofficial.github.io/vue-material-dashboard/documentation",
-      shareUrl: "https://www.creative-tim.com/product/vue-material-dashboard",
-      buyUrl: "",
-      freeUrl: "https://www.creative-tim.com/product/vue-material-dashboard",
       isOpen: false,
       sidebarColors: [
-        { color: "purple", active: false },
+        { color: "purple", active: true },
         { color: "blue", active: false },
-        { color: "green", active: true },
+        { color: "green", active: false },
         { color: "orange", active: false },
         { color: "red", active: false },
       ],

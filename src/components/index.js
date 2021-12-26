@@ -1,6 +1,4 @@
 // Cards
-import ChartCard from "./Cards/ChartCard.vue";
-import NavTabsCard from "./Cards/NavTabsCard.vue";
 import StatsCard from "./Cards/StatsCard.vue";
 import AgeChartCard from "./Cards/AgeChartCard.vue";
 
@@ -14,8 +12,6 @@ import FinderTable from "./Tables/FinderTable.vue";
 import DropDown from "./Dropdown.vue";
 // export all components
 export {
-  ChartCard,
-  NavTabsCard,
   StatsCard,
   NavTabsTable,
   ReligionTable,

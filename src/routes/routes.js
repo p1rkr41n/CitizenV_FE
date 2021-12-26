@@ -7,6 +7,7 @@ import Home from "@/pages/Home.vue";
 import Searcher from "@/pages/Searcher.vue";
 import Population from "@/pages/Population.vue";
 import Login from "@/pages/Login.vue";
+import NotFound from "@/pages/NotFound.vue";
 
 const routes = [
     {
@@ -14,7 +15,6 @@ const routes = [
     name: Login,
     component: Login,
   },
-
   {
     path: "/app",
     component: DashboardLayout,
@@ -50,6 +50,11 @@ const routes = [
         component: Searcher,
       },
     ],
+  },
+  {
+    path: "*",
+    name: "NOT FOUND",
+    component: NotFound,
   },
 ];
 
