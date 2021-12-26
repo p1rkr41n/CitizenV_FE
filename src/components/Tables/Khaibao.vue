@@ -11,10 +11,11 @@
         v-bind:placeholder="getareaCode"
       ></md-input>
     </md-field>
+
     <md-field>
       <label>Mã hộ</label>
-      <md-input v-model="householdCode"></md-input> </md-field
-    >
+      <md-input v-model="householdCode"></md-input>
+    </md-field>
     <md-button class="md-raised md-success" @click="submit" value="submit"
       >Khai bao</md-button
     >
@@ -49,7 +50,7 @@ export default {
       cardIdOfHost: "",
       idAddressRef: "",
       householdCode: "",
-      idboss: "",
+      idboss: "123456789",
     };
   },
 

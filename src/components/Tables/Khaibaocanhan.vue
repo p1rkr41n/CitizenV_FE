@@ -73,7 +73,7 @@ export default {
       gender: "",
       birth: "",
       educationalLevel: "",
-      idFamily:"",
+      idFamily:"123456789",
     };
   },
 
