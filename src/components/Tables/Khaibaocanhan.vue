@@ -1,44 +1,44 @@
 <template>
   <form>
      <md-field>
-      <label>idFamily</label>
+      <label>ID Family</label>
       <md-input v-model="idFamily"></md-input>
     </md-field>
     <md-field>
-      <label>name</label>
+      <label>Họ và tên</label>
       <md-input v-model="name"></md-input>
     </md-field>
 
     <md-field>
-      <label>cardId</label>
+      <label>CCCD</label>
       <md-input v-model="cardId"></md-input>
     </md-field>
     <md-field>
-      <label>job</label>
+      <label>Nghề nghiệp</label>
       <md-input v-model="job"></md-input>
     </md-field>
     <md-field>
-      <label>religion</label>
+      <label>Tôn giáo</label>
       <md-input v-model="religion"></md-input>
     </md-field>
     <md-field>
-      <label>idPermanentAddressRef</label>
+      <label>Địa chỉ thường trú</label>
       <md-input v-model="idPermanentAddressRef"></md-input>
     </md-field>
     <md-field>
-      <label>hometown</label>
+      <label>Quê quán</label>
       <md-input v-model="hometown"></md-input>
     </md-field>
     <md-field>
-      <label>male</label>
+      <label>Giới tính</label>
       <md-input v-model="male"></md-input>
     </md-field>
     <md-field>
-      <label>birth</label>
+      <label>Ngày sinh</label>
       <md-input v-model="birth"></md-input>
     </md-field>
     <md-field>
-      <label>educationalLeve</label>
+      <label>Trình độ văn hoá</label>
       <md-input v-model="educationalLeve"></md-input>
     </md-field>
     <md-button class="md-raised md-success" @click="submit" value="submit"

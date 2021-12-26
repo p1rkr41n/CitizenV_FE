@@ -9,7 +9,7 @@
       <md-input v-model="areaName"></md-input>
     </md-field>
     <md-field>
-      <label>idboss</label>
+      <label>ID của người quản lý</label>
       <md-input v-model="idboss"></md-input>
     </md-field>
     <md-field>

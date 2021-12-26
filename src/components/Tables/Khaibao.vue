@@ -1,22 +1,22 @@
 <template>
   <form>
     <md-field>
-      <label>headOfHouseholdName</label>
+      <label>Họ và tên chủ hộ</label>
       <md-input v-model="headOfHouseholdName"></md-input>
     </md-field>
     <md-field>
-      <label>idCardOfHeadOfHousehold</label>
+      <label>ID của chủ hộ</label>
       <md-input v-model="idCardOfHeadOfHousehold"></md-input>
     </md-field>
     <md-field>
-      <label>idAddressRef</label>
+      <label>ID khu vựcf</label>
       <md-input v-model="idAddressRef"></md-input>
     </md-field>
     <md-field>
-      <label>householdCode</label>
+      <label>Mã hộ</label>
       <md-input v-model="householdCode"></md-input> </md-field
     ><md-field>
-      <label>idboss</label>
+      <label>ID Family</label>
       <md-input v-model="idboss"></md-input>
     </md-field>
     <md-button class="md-raised md-success" @click="submit" value="submit"
