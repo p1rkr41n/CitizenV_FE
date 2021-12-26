@@ -5,7 +5,7 @@
       <md-input v-model="username"></md-input>
     </md-field>
     <md-field>
-      <label>Khu vuc</label>
+      <label>Tên khu vực</label>
       <md-input v-model="areaName"></md-input>
     </md-field>
     <md-field>
@@ -47,7 +47,7 @@ export default {
     submit() {
       axios
         .put(
-          `http://localhost:3000/api/address/change-info-area?id=${this.idboss}`,
+          `http://localhost:3000/api/address/change-info-area?id=${this.areaName}`,
           {
             areaName: this.areaName,
           }
