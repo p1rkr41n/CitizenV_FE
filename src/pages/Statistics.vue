@@ -170,7 +170,7 @@
           <template slot="footer">
             <div class="stats">
               <md-icon>update</md-icon>
-              Cập nhật theo ngày
+              Demo: cập nhật dữ liệu mỗi giờ 01 lần
             </div>
           </template>
         </stats-card>
