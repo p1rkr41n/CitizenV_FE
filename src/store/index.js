@@ -57,8 +57,8 @@ export default new Vuex.Store({
       commit("SET_area", area);
       commit("SET_idArea", idArea);
       commit("SET_areaCode", areaCode);
-      // set token link with main.js
-      Axios.defaults.headers.common["token"] = `${token}`;
+      // set auto header token = x-auth-token
+      Axios.defaults.headers.common["x-auth-token"] = `${token}`;
     },
     
     logout: ({ commit }) => {
