@@ -1,9 +1,5 @@
 <template>
   <form>
-     <md-field>
-      <label>ID Family</label>
-      <md-input v-model="idFamily"></md-input>
-    </md-field>
     <md-field>
       <label>Họ và tên</label>
       <md-input v-model="name"></md-input>

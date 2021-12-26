@@ -7,21 +7,14 @@
     <md-field>
       <label>ID của chủ hộ</label>
       <md-input
-        v-model="idCardOfHeadOfHousehold"
+        v-model="cardIdOfHost"
         v-bind:placeholder="getareaCode"
       ></md-input>
     </md-field>
     <md-field>
-      <label>ID khu vực</label>
-      <md-input v-model="getidarea"></md-input>
-    </md-field>
-    <md-field>
       <label>Mã hộ</label>
       <md-input v-model="householdCode"></md-input> </md-field
-    ><md-field>
-      <label>ID Family</label>
-      <md-input v-model="idboss"></md-input>
-    </md-field>
+    >
     <md-button class="md-raised md-success" @click="submit" value="submit"
       >Khai bao</md-button
     >
@@ -53,7 +46,7 @@ export default {
     return {
       family: [],
       headOfHouseholdName: "",
-      idCardOfHeadOfHousehold: "",
+      cardIdOfHost: "",
       idAddressRef: "",
       householdCode: "",
       idboss: "",
@@ -66,12 +59,12 @@ export default {
         .post(`http://localhost:3000/api/family`, {
           family: {
             headOfHouseholdName: this.headOfHouseholdName,
-            idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
+            cardIdOfHost: this.cardIdOfHost,
             idAddressRef: this.getidarea,
             householdCode: this.householdCode,
           },
         })
-        .then((response) => (this.responseData = response.data));
+        .then((response) => (this.idboss = response.data));
       // console.log(Math.floor(100000 + Math.random() * 900000)); sinh mat khau random 6 kitu
       // window.location.reload();
     },
@@ -80,10 +73,10 @@ export default {
       axios
         .put(`http://localhost:3000/api/family?idFamily=${this.idboss}`, {
           family: {
-            headOfHouseholdName: this.headOfHouseholdName,
-            idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
-            idAddressRef: this.getidareaf,
+            cardIdOfHost: this.cardIdOfHost,
+            idAddressRef: this.getidarea,
             householdCode: this.householdCode,
+            headOfHouseholdName: this.headOfHouseholdName,
           },
         })
         .then((response) => (this.responseData = response.data));
