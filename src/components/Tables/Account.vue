@@ -2,12 +2,12 @@
   <form>
     <md-field>
       <label>Tên tài khoản</label>
-      <md-input v-model="username"></md-input>
+      <md-input v-model="username" v-bind:placeholder="getareaCode"></md-input>
     </md-field>
 
     <md-field>
       <label>Mật khẩu</label>
-      <md-input v-model="password"></md-input>
+      <md-input v-model="password" ></md-input>
     </md-field>
     <md-field>
       <label>Địa phương</label>
@@ -24,7 +24,7 @@ import axios from "axios";
 import { mapGetters } from "vuex";
 export default {
   name: "account",
-  computed: mapGetters(["getidarea"]),
+  computed: mapGetters(["getidarea", "getareaCode"]),
   props: {
     tableHeaderColor: {
       type: String,

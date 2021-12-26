@@ -6,7 +6,10 @@
     </md-field>
     <md-field>
       <label>ID của chủ hộ</label>
-      <md-input v-model="idCardOfHeadOfHousehold"></md-input>
+      <md-input
+        v-model="idCardOfHeadOfHousehold"
+        v-bind:placeholder="getareaCode"
+      ></md-input>
     </md-field>
     <md-field>
       <label>ID khu vực</label>
@@ -34,7 +37,8 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "khaibao",
-  computed: mapGetters(["getidarea"]),
+  computed: mapGetters(["getidarea", "getareaCode"]),
+
   props: {
     tableHeaderColor: {
       type: String,
@@ -78,7 +82,7 @@ export default {
           family: {
             headOfHouseholdName: this.headOfHouseholdName,
             idCardOfHeadOfHousehold: this.idCardOfHeadOfHousehold,
-            idAddressRef: this.idAddressRef,
+            idAddressRef: this.getidareaf,
             householdCode: this.householdCode,
           },
         })
