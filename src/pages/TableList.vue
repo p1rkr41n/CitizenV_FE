@@ -28,10 +28,8 @@
           <md-card-content>
             <Replaceaccount table-header-color="green"></Replaceaccount>
           </md-card-content>
-          >
         </md-card>
       </div>
-      
     </div>
   </div>
 </template>
@@ -42,13 +40,11 @@ import AccountSeen from "../components/Tables/AccountSeen.vue";
 import Account from "../components/Tables/Account.vue";
 import Replaceaccount from "../components/Tables/Replaceaccount.vue";
 
-
 export default {
   components: {
     AccountSeen,
     Account,
     Replaceaccount,
-  
   },
   data() {
     return {
