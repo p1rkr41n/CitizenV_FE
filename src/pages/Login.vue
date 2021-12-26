@@ -58,7 +58,7 @@ export default {
   //check if user is logged in
   async created() {
     if (this.$store.getters.isLoggedIn) {
-      this.$router.push("/app/statistics");
+      this.$router.push("/app/home");
     }
     this.area = this.$store.getters.getarea.area;
     // this.secretMessage = await AuthService.getSecretContent();
