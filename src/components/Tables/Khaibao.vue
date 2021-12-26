@@ -9,8 +9,8 @@
       <md-input v-model="idCardOfHeadOfHousehold"></md-input>
     </md-field>
     <md-field>
-      <label>ID khu vựcf</label>
-      <md-input v-model="idAddressRef"></md-input>
+      <label>ID khu vực</label>
+      <md-input v-model="getidarea"></md-input>
     </md-field>
     <md-field>
       <label>Mã hộ</label>
@@ -31,6 +31,7 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
+
 export default {
   name: "khaibao",
   computed: mapGetters(["getidarea"]),
